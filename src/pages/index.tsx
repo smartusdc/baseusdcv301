@@ -6,15 +6,11 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { stakingABI } from '../abis/stakingABI';
 import { usdcABI } from '../abis/usdcABI';
 
-// Type definitions
-type Address = `0x${string}`;
-
 // Contract Configuration
-const CONTRACT_ADDRESS = '0x2Bd38bD63D66b360dE91E2F8CAEe48AA0B159a00' as Address;
-const USDC_ADDRESS = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913' as Address;
+const CONTRACT_ADDRESS = '0x2Bd38bD63D66b360dE91E2F8CAEe48AA0B159a00';
+const USDC_ADDRESS = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
 const BASE_CHAIN_ID = 8453;
 const MIN_DEPOSIT = '0.01';
-
 
 export default function Home() {
   const { address } = useAccount();
@@ -42,42 +38,49 @@ export default function Home() {
     enabled: !!address,
   });
 
-  // Contract Interactions
-  const { writeAsync: approveUsdc } = useContractWrite({
-    address: USDC_ADDRESS,
-    abi: usdcABI,
-    functionName: 'approve',
-  });
+ // Contract Interactions
+const { writeAsync: approveUsdc } = useContractWrite({
+  mode: 'recklesslyUnprepared',
+  address: USDC_ADDRESS,
+  abi: usdcABI,
+  functionName: 'approve',
+});
 
-  const { writeAsync: stake } = useContractWrite({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'depositFunds',
-  });
+const { writeAsync: stake } = useContractWrite({
+  mode: 'recklesslyUnprepared',
+  address: CONTRACT_ADDRESS,
+  abi: stakingABI,
+  functionName: 'depositFunds',
+});
 
-  const { writeAsync: claimRewards } = useContractWrite({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'claimDepositReward',
-  });
+const { writeAsync: claimRewards } = useContractWrite({
+  mode: 'recklesslyUnprepared',
+  address: CONTRACT_ADDRESS,
+  abi: stakingABI,
+  functionName: 'claimDepositReward',
+});
 
-  const { writeAsync: claimReferralRewards } = useContractWrite({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'claimReferralReward',
-  });
+const { writeAsync: claimReferralRewards } = useContractWrite({
+  mode: 'recklesslyUnprepared',
+  address: CONTRACT_ADDRESS,
+  abi: stakingABI,
+  functionName: 'claimReferralReward',
+});
 
-  const { writeAsync: generateReferralCode } = useContractWrite({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'generateReferralCode',
-  });
+const { writeAsync: generateReferralCode } = useContractWrite({
+  mode: 'recklesslyUnprepared',
+  address: CONTRACT_ADDRESS,
+  abi: stakingABI,
+  functionName: 'generateReferralCode',
+});
 
-  const { writeAsync: processReferral } = useContractWrite({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'processReferral',
-  });
+const { writeAsync: processReferral } = useContractWrite({
+  mode: 'recklesslyUnprepared',
+  address: CONTRACT_ADDRESS,
+  abi: stakingABI,
+  functionName: 'processReferral',
+});
+
 
   // Network Validation
   useEffect(() => {
