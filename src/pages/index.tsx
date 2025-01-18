@@ -11,34 +11,106 @@ import { CONTRACTS } from '../abis/contracts';
 // 既存のimport文の後に
 const LandingContent = () => {
   return (
-    <div className="space-y-12">
-      {/* Hero Section */}
-      <div className="text-center px-4 py-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl text-white">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+    <div className="container mx-auto px-4">
+      {/* APR Info */}
+      <div className="grid grid-cols-3 gap-6 mb-12">
+        <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-xl font-bold mb-2">Current APR</h2>
+          <p className="text-3xl text-blue-600">0%</p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-xl font-bold mb-2">Referrer Reward</h2>
+          <p className="text-3xl text-blue-600">0%</p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-xl font-bold mb-2">Referred Reward</h2>
+          <p className="text-3xl text-blue-600">0%</p>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="bg-white p-8 rounded-lg shadow mb-12">
+        <h1 className="text-4xl font-bold mb-6">
           The Future of Finance on Coinbase's BASE Network
-        </h2>
-        <p className="text-xl md:text-2xl mb-4 text-blue-100">
+        </h1>
+        <p className="text-xl mb-8">
           Join the Next Evolution in Digital Asset Infrastructure
         </p>
-        <div className="flex flex-wrap justify-center gap-4 text-lg text-blue-100">
+        <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
           <div className="flex items-center">
-            <span className="mr-2">•</span>
+            <span className="text-blue-600 mr-2">•</span>
             Institutional-Grade Security
           </div>
           <div className="flex items-center">
-            <span className="mr-2">•</span>
+            <span className="text-blue-600 mr-2">•</span>
             Breakthrough Technology
           </div>
           <div className="flex items-center">
-            <span className="mr-2">•</span>
+            <span className="text-blue-600 mr-2">•</span>
             Community Governance
+          </div>
+        </div>
+
+        {/* Evolution Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-4">The Evolution of Digital Finance</h2>
+          <p className="mb-6">
+            Bitcoin revolutionized finance by solving the digital record-keeping challenge. USDC, backed by 
+            Coinbase's institutional framework and regular audits, then achieved something remarkable: 
+            bringing the stability of US dollars into the digital age with perfect one-to-one value maintenance.
+          </p>
+        </div>
+
+        {/* BASE Network Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-4">The BASE Network Breakthrough</h2>
+          <p className="mb-6">
+            While maintaining Ethereum's proven security model, BASE Network achieved a revolutionary 
+            breakthrough: reducing transaction costs to just 0.1% of traditional fees. This advancement, 
+            developed by Coinbase's engineering team, makes large-scale adoption practical for the first time.
+          </p>
+        </div>
+
+        {/* Steps Section */}
+        <div className="grid md:grid-cols-4 gap-6 mb-12">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-xl font-bold mb-3">Create Coinbase Account</h3>
+            <p>Start by creating a Coinbase account to purchase USDC. This is your gateway to cryptocurrency.</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-xl font-bold mb-3">Setup Wallet</h3>
+            <p>Install MetaMask and purchase USDC from Coinbase. Transfer USDC to your MetaMask wallet.</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-xl font-bold mb-3">Connect to BASE</h3>
+            <p>Switch to BASE Network using MetaMask. BASE is Coinbase's secure and efficient network.</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-xl font-bold mb-3">Start Staking</h3>
+            <p>Connect wallet and start earning rewards. You can start with as little as $1 USDC.</p>
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-3">How safe is my investment?</h3>
+              <p>Your funds are secured by smart contracts on the BASE Network, operated by Coinbase. 
+                All contracts are public and verifiable, ensuring complete transparency.</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-3">Can I withdraw anytime?</h3>
+              <p>Yes, you can withdraw your funds at any time without any restrictions or fees. 
+                Your funds remain under your control.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 
 
 interface UserInfo {
