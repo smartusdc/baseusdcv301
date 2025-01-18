@@ -6,11 +6,15 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { stakingABI } from '../abis/stakingABI';
 import { usdcABI } from '../abis/usdcABI';
 
+// Type definitions
+type Address = `0x${string}`;
+
 // Contract Configuration
-const CONTRACT_ADDRESS = '0x2Bd38bD63D66b360dE91E2F8CAEe48AA0B159a00' as const;
-const USDC_ADDRESS = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913' as const;
+const CONTRACT_ADDRESS = '0x2Bd38bD63D66b360dE91E2F8CAEe48AA0B159a00' as Address;
+const USDC_ADDRESS = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913' as Address;
 const BASE_CHAIN_ID = 8453;
 const MIN_DEPOSIT = '0.01';
+
 
 export default function Home() {
   const { address } = useAccount();
