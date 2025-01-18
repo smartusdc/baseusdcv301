@@ -1,4 +1,5 @@
 // src/pages/index.tsx
+// Fixed TypeScript errors and updated permissions
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useAccount, useContractRead, useNetwork, useSwitchNetwork, usePrepareContractWrite, useContractWrite } from 'wagmi';
