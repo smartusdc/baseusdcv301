@@ -221,7 +221,7 @@ export default function Home() {
   // Part 2: UI Rendering
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">  </div>
         {/* Header */}
         <header className="flex justify-between items-center mb-8">
   <div className="flex items-center">
@@ -230,11 +230,16 @@ export default function Home() {
       BaseUSDC
     </h1>
   </div>
+  
   <ConnectButton />
 </header>
 
-        {/* Main Content */}
-        <div className="space-y-6">
+{/* ここから条件分岐を追加 */}
+{!address ? (
+          <LandingContent />
+        ) : (
+          <div className="space-y-6">
+
           {/* Staking Card */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
@@ -338,8 +343,8 @@ export default function Home() {
             )}
           </div>
 
-          {/* Referral Program Card */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                   {/* Referral Program Card */}
+                   <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold mb-4">Referral Program</h2>
             {!userInfo?.totalReferrals || userInfo.totalReferrals === 0n ? (
               <button
@@ -353,7 +358,7 @@ export default function Home() {
               <div className="p-6 bg-blue-50 rounded-lg">
                 <p className="text-sm text-gray-600 mb-2">Your Referral Code</p>
                 <p className="text-xl font-semibold text-blue-600">
-                {userInfo?.totalReferrals?.toString() || '0'}
+                  {userInfo?.totalReferrals?.toString() || '0'}
                 </p>
                 <div className="mt-4 pt-4 border-t border-blue-100">
                   <div className="flex justify-between items-center">
@@ -366,8 +371,8 @@ export default function Home() {
               </div>
             )}
           </div>
-        </div>
-      </div>
+          </div>
+      )}
 
       {/* Processing Overlay */}
       {isProcessing && (
