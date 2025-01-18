@@ -132,7 +132,16 @@ const MIN_DEPOSIT = '0.01';
 
 export default function Home() {
   // State Management
-  const { address } = useAccount();
+  const { address, isConnecting, isDisconnected } = useAccount();
+  const [isReady, setIsReady] = React.useState(false);
+  
+  // 接続状態が安定したことを確認
+  React.useEffect(() => {
+    if (!isConnecting) {
+      setIsReady(true);
+    }
+  }, [isConnecting]);
+
   const { chain } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
   const [inputAmount, setInputAmount] = useState('');
@@ -140,27 +149,6 @@ export default function Home() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [processReferralCode, setProcessReferralCode] = useState<number | undefined>();
 
-  // Contract Read Operations
-  const { data: currentAPR } = useContractRead({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'currentAPR',
-    watch: true
-  });
-
-  const { data: referrerRewardRate } = useContractRead({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'referrerRewardRate',
-    watch: true
-  });
-
-  const { data: referredRewardRate } = useContractRead({
-    address: CONTRACT_ADDRESS,
-    abi: stakingABI,
-    functionName: 'referredRewardRate',
-    watch: true
-  });
 
   const { data: userInfo, refetch: refetchUserInfo } = useContractRead({
     address: CONTRACT_ADDRESS,
@@ -312,6 +300,13 @@ export default function Home() {
     }
   };
   // Part 2: UI Rendering
+  if (!isReady || isConnecting) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-10 w-10 border-4 border-blue-500 border-t-transparent"></div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">  </div>
@@ -335,9 +330,9 @@ export default function Home() {
 
 
 {/* ここから条件分岐を追加 */}
-{!address ? (
-          <LandingContent />
-        ) : (
+{!address || isDisconnected ? (
+  <LandingContent />
+) : (
           <div className="space-y-6">
 
           {/* Staking Card */}
