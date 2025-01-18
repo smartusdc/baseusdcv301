@@ -141,6 +141,27 @@ export default function Home() {
   const [processReferralCode, setProcessReferralCode] = useState<number | undefined>();
 
   // Contract Read Operations
+  const { data: currentAPR } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: stakingABI,
+    functionName: 'currentAPR',
+    watch: true
+  });
+
+  const { data: referrerRewardRate } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: stakingABI,
+    functionName: 'referrerRewardRate',
+    watch: true
+  });
+
+  const { data: referredRewardRate } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: stakingABI,
+    functionName: 'referredRewardRate',
+    watch: true
+  });
+
   const { data: userInfo, refetch: refetchUserInfo } = useContractRead({
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
@@ -294,17 +315,24 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">  </div>
-        {/* Header */}
-        <header className="flex justify-between items-center mb-8">
-  <div className="flex items-center">
-    <img src="/logo.png" alt="BaseUSDC" className="h-8 w-auto mr-3" />
-    <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
-      BaseUSDC
-    </h1>
+   {/* Header */}
+<header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+  <div className="container mx-auto px-4">
+    <div className="flex justify-between items-center h-16">
+      <div className="flex items-center space-x-2">
+        <img src="/logo.png" alt="BASEUSDC.COM" className="h-8 w-auto" />
+        <h1 className="text-2xl font-bold">BaseUSDC</h1>
+      </div>
+      <div className="ml-auto">
+        <ConnectButton />
+      </div>
+    </div>
   </div>
-  
-  <ConnectButton />
 </header>
+
+{/* ヘッダーの高さ分のスペーサー */}
+<div className="h-16"></div>
+
 
 {/* ここから条件分岐を追加 */}
 {!address ? (
