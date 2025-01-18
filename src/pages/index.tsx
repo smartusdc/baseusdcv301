@@ -20,6 +20,8 @@ export default function Home() {
   const [inputAmount, setInputAmount] = useState('');
   const [referralCode, setReferralCode] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [processReferralCode, setProcessReferralCode] = useState<number | undefined>();
+
 
   // Contract Data Reads with Proper Error Handling
   const { data: userInfo, refetch: refetchUserInfo } = useContractRead({
