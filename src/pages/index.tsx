@@ -1,6 +1,6 @@
 // src/pages/index.tsx
 import { useState, useEffect } from 'react';
-import { useAccount, useContractRead, useContractWrite, useNetwork, useSwitchNetwork } from 'wagmi';
+import { useAccount, useContractRead, useNetwork, useSwitchNetwork, usePrepareContractWrite, useContractWrite } from 'wagmi';
 import { parseUnits, formatUnits } from 'viem';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { stakingABI } from '../abis/stakingABI';
@@ -40,10 +40,13 @@ export default function Home() {
   });
 
 // Contract Interactions
-const { writeAsync: approveUsdc } = useContractWrite({
-  ...CONTRACTS.USDC,
+const { config: approveConfig } = usePrepareContractWrite({
+  address: CONTRACTS.USDC.address,
+  abi: CONTRACTS.USDC.abi,
   functionName: 'approve',
 });
+
+const { writeAsync: approveUsdc } = useContractWrite(approveConfig);
 
 const { writeAsync: stake } = useContractWrite({
   address: CONTRACT_ADDRESS,
