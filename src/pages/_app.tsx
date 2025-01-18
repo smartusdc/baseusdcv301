@@ -10,10 +10,11 @@ import {
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { base } from 'wagmi/chains';
 import { publicProvider } from '@wagmi/core/providers/public';
-import Head from 'next/head';
-import Script from 'next/script';
+import Head from 'next/head';  // 追加
+import Script from 'next/script';  
 
-const { chains, publicClient } = configureChains(
+// hello 
+const { chains, publicClient, webSocketPublicClient } = configureChains(
   [base],
   [publicProvider()]
 );
@@ -25,28 +26,17 @@ const { connectors } = getDefaultWallets({
 });
 
 const wagmiConfig = createConfig({
-  autoConnect: false, // autoConnectをfalseに変更
+  autoConnect: true,
   connectors,
-  publicClient
-  // webSocketPublicClientを削除
+  publicClient,
+  webSocketPublicClient,
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Hydration対策のためのレンダリング制御
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <>
       <Head>
-      <title>BASEUSDC.COM - The Future of Finance on Coinbase's BASE Network</title>
+        <title>BASEUSDC.COM - The Future of Finance on Coinbase's BASE Network</title>
         <meta name="description" content="BASEUSDC.COM - The next evolution in digital finance on Coinbase's BASE Network. Join a revolutionary platform combining institutional-grade security with breakthrough blockchain technology." />
         <meta name="keywords" content="BASE Network, Coinbase, digital finance, institutional DeFi, blockchain innovation, USDC infrastructure, secure staking, community governance" />
         <meta property="og:title" content="BASEUSDC.COM - The Future of Finance on Coinbase's BASE Network" />
@@ -84,7 +74,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
-
-
-  
- 
