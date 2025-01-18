@@ -1,4 +1,5 @@
 // src/pages/index.tsx
+import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useAccount, useContractRead, useNetwork, useSwitchNetwork, usePrepareContractWrite, useContractWrite } from 'wagmi';
 import { parseUnits, formatUnits } from 'viem';
@@ -7,11 +8,27 @@ import { stakingABI } from '../abis/stakingABI';
 import { usdcABI } from '../abis/usdcABI';
 import { CONTRACTS } from '../abis/contracts';
 
+// Contract Configuration の前に追加
+interface UserInfo {
+  depositAmount: bigint;
+  lastRewardTimestamp: bigint;
+  pendingRewards: bigint;
+  referralRewards: bigint;
+  totalReferrals: bigint;
+  accumulatedRewards: bigint;
+  isFrozen: boolean;
+  hasReferrer: boolean;
+}
+
+
 // Contract Configuration
-const CONTRACT_ADDRESS = '0x2Bd38bD63D66b360dE91E2F8CAEe48AA0B159a00' as `0x${string}`;
-const USDC_ADDRESS = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913' as `0x${string}`;
+type ContractAddress = `0x${string}`;  // EthereumAddressの代わりにContractAddressを使用
+const DEFAULT_ADDRESS = '0x2Bd38bD63D66b360dE91E2F8CAEe48AA0B159a00' as ContractAddress;
+const CONTRACT_ADDRESS: ContractAddress = DEFAULT_ADDRESS;
+const USDC_ADDRESS: ContractAddress = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
 const BASE_CHAIN_ID = 8453;
 const MIN_DEPOSIT = '0.01';
+
 
 export default function Home() {
   const { address } = useAccount();
@@ -28,9 +45,10 @@ export default function Home() {
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
     functionName: 'users',
-    args: [address],
+    args: [address ?? '0x0000000000000000000000000000000000000000'],
     enabled: !!address,
-});
+}) as { data: UserInfo | undefined, refetch: () => void };
+
   
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
@@ -66,14 +84,6 @@ const { config: claimRewardsConfig } = usePrepareContractWrite({
 });
 const { writeAsync: claimRewards } = useContractWrite(claimRewardsConfig);
 
-// Claim Referral Rewards
-const { config: claimReferralRewardsConfig } = usePrepareContractWrite({
-  address: CONTRACT_ADDRESS,
-  abi: stakingABI,
-  functionName: 'claimReferralReward',
-  enabled: !!address,
-});
-const { writeAsync: claimReferralRewards } = useContractWrite(claimReferralRewardsConfig);
 
 // Generate Referral Code
 const { config: generateReferralCodeConfig } = usePrepareContractWrite({
@@ -184,22 +194,6 @@ const handleClaimStakingRewards = async () => {
   }
 };
 
-const handleClaimReferralRewards = async () => {
-  if (!address || isProcessing) return;
-  
-  try {
-    setIsProcessing(true);
-    const tx = await claimReferralRewards?.();
-    if (!tx) throw new Error('Failed to claim referral rewards');
-    await refetchUserInfo();
-    alert('Referral rewards claimed successfully');
-  } catch (error: any) {
-    console.error('Claim referral rewards error:', error);
-    alert(error?.message || 'Failed to claim referral rewards');
-  } finally {
-    setIsProcessing(false);
-  }
-};
 
 const handleGenerateReferralCode = async () => {
   if (!address || isProcessing) return;
@@ -243,7 +237,7 @@ const handleGenerateReferralCode = async () => {
                 />
               </div>
 
-              {!userInfo?.hasReferrer && (
+              {!userInfo?.[7] && (
                 <div>
                   <label className="block text-sm font-medium mb-1">Referral Code (Optional)</label>
                   <div className="flex space-x-2">
@@ -279,11 +273,11 @@ const handleGenerateReferralCode = async () => {
               <div className="mt-4 pt-4 border-t">
                 <div className="flex justify-between mb-2">
                   <span>Your Stake:</span>
-                  <span>{formatUnits(userInfo.depositAmount, 6)} USDC</span>
+                  <span>{formatUnits(userInfo[0], 6)} USDC</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Pending Rewards:</span>
-                  <span>{formatUnits(userInfo.pendingRewards, 6)} USDC</span>
+                  <span>{formatUnits(userInfo[2], 6)} USDC</span>
                 </div>
               </div>
             )}
@@ -294,11 +288,11 @@ const handleGenerateReferralCode = async () => {
             <h2 className="text-xl font-semibold mb-4">Available Rewards</h2>
             
             {/* Staking Rewards */}
-            {userInfo?.pendingRewards > 0 && (
+            {userInfo?.[2] > 0 && (
               <div className="mb-6">
                 <div className="p-4 bg-gray-50 rounded-md mb-4">
                   <p className="text-sm text-gray-600">Staking Rewards:</p>
-                  <p className="text-lg font-medium">{formatUnits(userInfo.pendingRewards, 6)} USDC</p>
+                  <p className="text-lg font-medium">{formatUnits(userInfo?.pendingRewards || 0n, 6)} USDC</p>
                 </div>
                 <button
                   onClick={handleClaimStakingRewards}
@@ -310,25 +304,9 @@ const handleGenerateReferralCode = async () => {
               </div>
             )}
 
-            {/* Referral Rewards */}
-            {userInfo?.referralRewards > 0 && (
-              <div>
-                <div className="p-4 bg-gray-50 rounded-md mb-4">
-                  <p className="text-sm text-gray-600">Referral Rewards:</p>
-                  <p className="text-lg font-medium">{formatUnits(userInfo.referralRewards, 6)} USDC</p>
-                </div>
-                <button
-                  onClick={handleClaimReferralRewards}
-                  disabled={isProcessing}
-                  className="w-full bg-blue-600 text-white rounded-md py-2 disabled:bg-gray-400"
-                >
-                  {isProcessing ? 'Processing...' : 'Claim Referral Rewards'}
-                </button>
-              </div>
-            )}
-
-            {(!userInfo?.pendingRewards || userInfo.pendingRewards <= 0) && 
-             (!userInfo?.referralRewards || userInfo.referralRewards <= 0) && (
+   
+{(!userInfo?.[2] || userInfo[2] <= 0) && 
+ (!userInfo?.[3] || userInfo[3] <= 0) && (
               <p className="text-center text-gray-500">No rewards available to claim</p>
             )}
           </div>
@@ -337,7 +315,7 @@ const handleGenerateReferralCode = async () => {
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold mb-4">Referral Program</h2>
             
-            {!userInfo?.referralCode ? (
+            {!userInfo?.[4] ? (
               <div>
                 <button
                   onClick={handleGenerateReferralCode}
@@ -350,14 +328,14 @@ const handleGenerateReferralCode = async () => {
             ) : (
               <div className="p-4 bg-gray-50 rounded-md">
                 <p className="text-sm text-gray-600">Your Referral Code:</p>
-                <p className="text-lg font-medium">{userInfo.referralCode.toString()}</p>
+                <p className="text-lg font-medium">{userInfo[4].toString()}</p>
               </div>
             )}
 
             <div className="mt-4">
               <div className="flex justify-between py-2">
                 <span className="text-gray-600">Total Referrals:</span>
-                <span className="font-medium">{userInfo?.totalReferrals?.toString() || '0'}</span>
+                <span className="font-medium">{userInfo?.[4]?.toString() || '0'}</span>
               </div>
             </div>
           </div>
