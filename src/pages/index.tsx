@@ -1,4 +1,4 @@
-// src/pages/index.tsx - Part 1: Core Logic and State Management
+// src/pages/index.tsx - Part 1: Core Logic and State Management check
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useAccount, useContractRead, useNetwork, useSwitchNetwork, usePrepareContractWrite, useContractWrite } from 'wagmi';
