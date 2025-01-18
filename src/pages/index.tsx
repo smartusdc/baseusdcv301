@@ -17,7 +17,7 @@ export default function Home() {
   const { address } = useAccount();
   const { chain } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
-  const [stakeAmount, setStakeAmount] = useState('');
+  const [inputAmount, setInputAmount] = useState('');
   const [referralCode, setReferralCode] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -30,7 +30,6 @@ export default function Home() {
     enabled: !!address,
   });
   
-
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
     abi: usdcABI,
@@ -40,30 +39,19 @@ export default function Home() {
   });
 
 // Contract Interactions
-// State for dynamic args
-const [approveAmount, setApproveAmount] = useState<bigint | undefined>();
-const [approveAddress, setApproveAddress] = useState<`0x${string}` | undefined>();
-const [stakeAmount, setStakeAmount] = useState<bigint | undefined>();
-const [stakeReferralCode, setStakeReferralCode] = useState<number | undefined>();
-const [processReferralCode, setProcessReferralCode] = useState<number | undefined>();
-
-// Approve USDC
 const { config: approveConfig } = usePrepareContractWrite({
   address: CONTRACTS.USDC.address,
   abi: CONTRACTS.USDC.abi,
   functionName: 'approve',
-  args: approveAmount && approveAddress ? [approveAddress, approveAmount] : undefined,
-  enabled: !!approveAmount && !!approveAddress,
+  enabled: !!address && !!inputAmount,
 });
 const { writeAsync: approveUsdc } = useContractWrite(approveConfig);
 
-// Stake
 const { config: stakeConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'depositFunds',
-  args: stakeAmount && typeof stakeReferralCode !== 'undefined' ? [stakeAmount, BigInt(stakeReferralCode)] : undefined,
-  enabled: !!stakeAmount && typeof stakeReferralCode !== 'undefined',
+  enabled: !!address && !!inputAmount,
 });
 const { writeAsync: stake } = useContractWrite(stakeConfig);
 
@@ -104,7 +92,6 @@ const { config: processReferralConfig } = usePrepareContractWrite({
 });
 const { writeAsync: processReferral } = useContractWrite(processReferralConfig);
 
-
   // Network Validation
   useEffect(() => {
     if (chain && chain.id !== BASE_CHAIN_ID) {
@@ -116,32 +103,28 @@ const { writeAsync: processReferral } = useContractWrite(processReferralConfig);
   // Transaction Handlers with Comprehensive Error Management
 const handleStake = async () => {
   if (!address || isProcessing) return;
-  if (!stakeAmount || parseFloat(stakeAmount) < parseFloat(MIN_DEPOSIT)) {
+  if (!inputAmount || parseFloat(inputAmount) < parseFloat(MIN_DEPOSIT)) {
     alert(`Minimum stake amount is ${MIN_DEPOSIT} USDC`);
     return;
   }
 
   try {
     setIsProcessing(true);
-    const amount = parseUnits(stakeAmount, 6);
+    const amount = parseUnits(inputAmount, 6);
     const referralCodeNumber = referralCode ? parseInt(referralCode) : 0;
 
     if (!allowance || allowance < amount) {
-      setApproveAmount(amount);
-      setApproveAddress(CONTRACT_ADDRESS);
       const approveTx = await approveUsdc?.();
       if (!approveTx) throw new Error('Failed to approve');
       await approveTx.wait();
     }
 
-    setStakeAmount(amount);
-    setStakeReferralCode(referralCodeNumber);
     const stakeTx = await stake?.();
     if (!stakeTx) throw new Error('Failed to stake');
     await stakeTx.wait();
     await refetchUserInfo();
     
-    setStakeAmount('');
+    setInputAmount('');
     setReferralCode('');
     alert('Staking successful');
   } catch (error: any) {
@@ -256,8 +239,8 @@ const handleGenerateReferralCode = async () => {
                 <label className="block text-sm font-medium mb-1">Amount</label>
                 <input
                   type="number"
-                  value={stakeAmount}
-                  onChange={(e) => setStakeAmount(e.target.value)}
+                  value={inputAmount}
+                  onChange={(e) => setInputAmount(e.target.value)}
                   placeholder={`Min ${MIN_DEPOSIT} USDC`}
                   className="w-full rounded-md border p-2"
                   disabled={isProcessing}
