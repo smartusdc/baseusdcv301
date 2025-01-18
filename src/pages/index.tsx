@@ -8,6 +8,39 @@ import { stakingABI } from '../abis/stakingABI';
 import { usdcABI } from '../abis/usdcABI';
 import { CONTRACTS } from '../abis/contracts';
 
+// 既存のimport文の後に
+const LandingContent = () => {
+  return (
+    <div className="space-y-12">
+      {/* Hero Section */}
+      <div className="text-center px-4 py-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl text-white">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          The Future of Finance on Coinbase's BASE Network
+        </h2>
+        <p className="text-xl md:text-2xl mb-4 text-blue-100">
+          Join the Next Evolution in Digital Asset Infrastructure
+        </p>
+        <div className="flex flex-wrap justify-center gap-4 text-lg text-blue-100">
+          <div className="flex items-center">
+            <span className="mr-2">•</span>
+            Institutional-Grade Security
+          </div>
+          <div className="flex items-center">
+            <span className="mr-2">•</span>
+            Breakthrough Technology
+          </div>
+          <div className="flex items-center">
+            <span className="mr-2">•</span>
+            Community Governance
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
 interface UserInfo {
   depositAmount: bigint;
   lastRewardTimestamp: bigint;
@@ -191,11 +224,14 @@ export default function Home() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
-            BaseUSDC Staking
-          </h1>
-          <ConnectButton />
-        </header>
+  <div className="flex items-center">
+    <img src="/logo.png" alt="BaseUSDC" className="h-8 w-auto mr-3" />
+    <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
+      BaseUSDC
+    </h1>
+  </div>
+  <ConnectButton />
+</header>
 
         {/* Main Content */}
         <div className="space-y-6">
