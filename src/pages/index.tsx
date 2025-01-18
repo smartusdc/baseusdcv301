@@ -45,38 +45,42 @@ const { config: approveConfig } = usePrepareContractWrite({
   abi: CONTRACTS.USDC.abi,
   functionName: 'approve',
 });
-
 const { writeAsync: approveUsdc } = useContractWrite(approveConfig);
 
-const { writeAsync: stake } = useContractWrite({
+const { config: stakeConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'depositFunds',
 });
+const { writeAsync: stake } = useContractWrite(stakeConfig);
 
-const { writeAsync: claimRewards } = useContractWrite({
+const { config: claimRewardsConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'claimDepositReward',
 });
+const { writeAsync: claimRewards } = useContractWrite(claimRewardsConfig);
 
-const { writeAsync: claimReferralRewards } = useContractWrite({
+const { config: claimReferralRewardsConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'claimReferralReward',
 });
+const { writeAsync: claimReferralRewards } = useContractWrite(claimReferralRewardsConfig);
 
-const { writeAsync: generateReferralCode } = useContractWrite({
+const { config: generateReferralCodeConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'generateReferralCode',
 });
+const { writeAsync: generateReferralCode } = useContractWrite(generateReferralCodeConfig);
 
-const { writeAsync: processReferral } = useContractWrite({
+const { config: processReferralConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'processReferral',
 });
+const { writeAsync: processReferral } = useContractWrite(processReferralConfig);
 
 
 
