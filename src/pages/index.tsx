@@ -27,10 +27,10 @@ export default function Home() {
   const { data: userInfo, refetch: refetchUserInfo } = useContractRead({
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
-    functionName: 'getUserInfo',
+    functionName: 'users',
     args: [address],
     enabled: !!address,
-  });
+});
   
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
