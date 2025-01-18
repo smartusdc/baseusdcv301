@@ -118,12 +118,10 @@ const handleStake = async () => {
     if (!allowance || allowance < amount) {
       const approveTx = await approveUsdc?.();
       if (!approveTx) throw new Error('Failed to approve');
-      await approveTx.wait();
     }
 
     const stakeTx = await stake?.();
     if (!stakeTx) throw new Error('Failed to stake');
-    await stakeTx.wait();
     await refetchUserInfo();
     
     setInputAmount('');
@@ -152,7 +150,6 @@ const handleApplyReferral = async () => {
     setProcessReferralCode(referralCodeNumber);
     const tx = await processReferral?.();
     if (!tx) throw new Error('Failed to process referral');
-    await tx.wait();
     await refetchUserInfo();
     setReferralCode('');
     alert('Referral code applied successfully');
@@ -177,7 +174,6 @@ const handleClaimStakingRewards = async () => {
     setIsProcessing(true);
     const tx = await claimRewards?.();
     if (!tx) throw new Error('Failed to claim rewards');
-    await tx.wait();
     await refetchUserInfo();
     alert('Rewards claimed successfully');
   } catch (error: any) {
@@ -195,7 +191,6 @@ const handleClaimReferralRewards = async () => {
     setIsProcessing(true);
     const tx = await claimReferralRewards?.();
     if (!tx) throw new Error('Failed to claim referral rewards');
-    await tx.wait();
     await refetchUserInfo();
     alert('Referral rewards claimed successfully');
   } catch (error: any) {
@@ -213,7 +208,6 @@ const handleGenerateReferralCode = async () => {
     setIsProcessing(true);
     const tx = await generateReferralCode?.();
     if (!tx) throw new Error('Failed to generate referral code');
-    await tx.wait();
     await refetchUserInfo();
     alert('Referral code generated successfully');
   } catch (error: any) {
