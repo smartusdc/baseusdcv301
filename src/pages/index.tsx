@@ -5,6 +5,7 @@ import { parseUnits, formatUnits } from 'viem';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { stakingABI } from '../abis/stakingABI';
 import { usdcABI } from '../abis/usdcABI';
+import { CONTRACTS } from '../abis/contracts';
 
 // Contract Configuration
 const CONTRACT_ADDRESS = '0x2Bd38bD63D66b360dE91E2F8CAEe48AA0B159a00' as `0x${string}`;
@@ -38,10 +39,9 @@ export default function Home() {
     enabled: !!address,
   });
 
- // Contract Interactions
+// Contract Interactions
 const { writeAsync: approveUsdc } = useContractWrite({
-  address: USDC_ADDRESS,
-  abi: usdcABI,
+  ...CONTRACTS.USDC,
   functionName: 'approve',
 });
 
