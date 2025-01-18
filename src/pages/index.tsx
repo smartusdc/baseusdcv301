@@ -40,46 +40,41 @@ export default function Home() {
 
  // Contract Interactions
 const { writeAsync: approveUsdc } = useContractWrite({
-  mode: 'recklesslyUnprepared',
   address: USDC_ADDRESS,
   abi: usdcABI,
   functionName: 'approve',
 });
 
 const { writeAsync: stake } = useContractWrite({
-  mode: 'recklesslyUnprepared',
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'depositFunds',
 });
 
 const { writeAsync: claimRewards } = useContractWrite({
-  mode: 'recklesslyUnprepared',
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'claimDepositReward',
 });
 
 const { writeAsync: claimReferralRewards } = useContractWrite({
-  mode: 'recklesslyUnprepared',
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'claimReferralReward',
 });
 
 const { writeAsync: generateReferralCode } = useContractWrite({
-  mode: 'recklesslyUnprepared',
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'generateReferralCode',
 });
 
 const { writeAsync: processReferral } = useContractWrite({
-  mode: 'recklesslyUnprepared',
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'processReferral',
 });
+
 
 
   // Network Validation
