@@ -11,8 +11,9 @@ import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { base } from 'wagmi/chains';
 import { publicProvider } from '@wagmi/core/providers/public';
 import Head from 'next/head';  // 追加
-import Script from 'next/script';  // 追加
+import Script from 'next/script';  
 
+// hello 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [base],
   [publicProvider()]
