@@ -40,48 +40,69 @@ export default function Home() {
   });
 
 // Contract Interactions
+// State for dynamic args
+const [approveAmount, setApproveAmount] = useState<bigint | undefined>();
+const [approveAddress, setApproveAddress] = useState<`0x${string}` | undefined>();
+const [stakeAmount, setStakeAmount] = useState<bigint | undefined>();
+const [stakeReferralCode, setStakeReferralCode] = useState<number | undefined>();
+const [processReferralCode, setProcessReferralCode] = useState<number | undefined>();
+
+// Approve USDC
 const { config: approveConfig } = usePrepareContractWrite({
   address: CONTRACTS.USDC.address,
   abi: CONTRACTS.USDC.abi,
   functionName: 'approve',
+  args: approveAmount && approveAddress ? [approveAddress, approveAmount] : undefined,
+  enabled: !!approveAmount && !!approveAddress,
 });
 const { writeAsync: approveUsdc } = useContractWrite(approveConfig);
 
+// Stake
 const { config: stakeConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'depositFunds',
+  args: stakeAmount && typeof stakeReferralCode !== 'undefined' ? [stakeAmount, BigInt(stakeReferralCode)] : undefined,
+  enabled: !!stakeAmount && typeof stakeReferralCode !== 'undefined',
 });
 const { writeAsync: stake } = useContractWrite(stakeConfig);
 
+// Claim Rewards
 const { config: claimRewardsConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'claimDepositReward',
+  enabled: !!address,
 });
 const { writeAsync: claimRewards } = useContractWrite(claimRewardsConfig);
 
+// Claim Referral Rewards
 const { config: claimReferralRewardsConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'claimReferralReward',
+  enabled: !!address,
 });
 const { writeAsync: claimReferralRewards } = useContractWrite(claimReferralRewardsConfig);
 
+// Generate Referral Code
 const { config: generateReferralCodeConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'generateReferralCode',
+  enabled: !!address,
 });
 const { writeAsync: generateReferralCode } = useContractWrite(generateReferralCodeConfig);
 
+// Process Referral
 const { config: processReferralConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'processReferral',
+  args: typeof processReferralCode !== 'undefined' ? [BigInt(processReferralCode)] : undefined,
+  enabled: !!address && typeof processReferralCode !== 'undefined',
 });
 const { writeAsync: processReferral } = useContractWrite(processReferralConfig);
-
 
 
   // Network Validation
@@ -93,119 +114,130 @@ const { writeAsync: processReferral } = useContractWrite(processReferralConfig);
   }, [chain, switchNetwork]);
 
   // Transaction Handlers with Comprehensive Error Management
-  const handleStake = async () => {
-    if (!address || isProcessing) return;
-    if (!stakeAmount || parseFloat(stakeAmount) < parseFloat(MIN_DEPOSIT)) {
-      alert(`Minimum stake amount is ${MIN_DEPOSIT} USDC`);
-      return;
+const handleStake = async () => {
+  if (!address || isProcessing) return;
+  if (!stakeAmount || parseFloat(stakeAmount) < parseFloat(MIN_DEPOSIT)) {
+    alert(`Minimum stake amount is ${MIN_DEPOSIT} USDC`);
+    return;
+  }
+
+  try {
+    setIsProcessing(true);
+    const amount = parseUnits(stakeAmount, 6);
+    const referralCodeNumber = referralCode ? parseInt(referralCode) : 0;
+
+    if (!allowance || allowance < amount) {
+      setApproveAmount(amount);
+      setApproveAddress(CONTRACT_ADDRESS);
+      const approveTx = await approveUsdc?.();
+      if (!approveTx) throw new Error('Failed to approve');
+      await approveTx.wait();
     }
 
-    try {
-      setIsProcessing(true);
-      const amount = parseUnits(stakeAmount, 6);
-      const referralCodeNumber = referralCode ? parseInt(referralCode) : 0;
-
-      if (!allowance || allowance < amount) {
-        const approveTx = await approveUsdc({ args: [CONTRACT_ADDRESS, amount] });
-        await approveTx.wait();
-      }
-
-      const stakeTx = await stake({ args: [amount, referralCodeNumber] });
-      await stakeTx.wait();
-      await refetchUserInfo();
-      
-      setStakeAmount('');
-      setReferralCode('');
-      alert('Staking successful');
-    } catch (error: any) {
-      console.error('Staking error:', error);
-      let message = 'Transaction failed';
-      if (error.message.includes('insufficient funds')) {
-        message = 'Insufficient USDC balance';
-      } else if (error.message.includes('referral code')) {
-        message = 'Invalid referral code';
-      }
-      alert(message);
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  const handleClaimStakingRewards = async () => {
-    if (!address || isProcessing) return;
+    setStakeAmount(amount);
+    setStakeReferralCode(referralCodeNumber);
+    const stakeTx = await stake?.();
+    if (!stakeTx) throw new Error('Failed to stake');
+    await stakeTx.wait();
+    await refetchUserInfo();
     
-    try {
-      setIsProcessing(true);
-      const tx = await claimRewards();
-      await tx.wait();
-      await refetchUserInfo();
-      alert('Rewards claimed successfully');
-    } catch (error: any) {
-      console.error('Claim rewards error:', error);
-      alert(error?.message || 'Failed to claim rewards');
-    } finally {
-      setIsProcessing(false);
+    setStakeAmount('');
+    setReferralCode('');
+    alert('Staking successful');
+  } catch (error: any) {
+    console.error('Staking error:', error);
+    let message = 'Transaction failed';
+    if (error.message.includes('insufficient funds')) {
+      message = 'Insufficient USDC balance';
+    } else if (error.message.includes('referral code')) {
+      message = 'Invalid referral code';
     }
-  };
+    alert(message);
+  } finally {
+    setIsProcessing(false);
+  }
+};
 
-  const handleClaimReferralRewards = async () => {
-    if (!address || isProcessing) return;
-    
-    try {
-      setIsProcessing(true);
-      const tx = await claimReferralRewards();
-      await tx.wait();
-      await refetchUserInfo();
-      alert('Referral rewards claimed successfully');
-    } catch (error: any) {
-      console.error('Claim referral rewards error:', error);
-      alert(error?.message || 'Failed to claim referral rewards');
-    } finally {
-      setIsProcessing(false);
+const handleApplyReferral = async () => {
+  if (!address || isProcessing || !referralCode) return;
+  
+  try {
+    setIsProcessing(true);
+    const referralCodeNumber = parseInt(referralCode);
+    setProcessReferralCode(referralCodeNumber);
+    const tx = await processReferral?.();
+    if (!tx) throw new Error('Failed to process referral');
+    await tx.wait();
+    await refetchUserInfo();
+    setReferralCode('');
+    alert('Referral code applied successfully');
+  } catch (error: any) {
+    console.error('Apply referral error:', error);
+    let message = 'Failed to apply referral code';
+    if (error.message.includes('Already has referrer')) {
+      message = 'You already have a referrer';
+    } else if (error.message.includes('Must have active deposit')) {
+      message = 'Please make a deposit first';
     }
-  };
+    alert(message);
+  } finally {
+    setIsProcessing(false);
+  }
+};
 
-  const handleGenerateReferralCode = async () => {
-    if (!address || isProcessing) return;
-    
-    try {
-      setIsProcessing(true);
-      const tx = await generateReferralCode();
-      await tx.wait();
-      await refetchUserInfo();
-      alert('Referral code generated successfully');
-    } catch (error: any) {
-      console.error('Generate referral code error:', error);
-      alert(error?.message || 'Failed to generate referral code');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
+const handleClaimStakingRewards = async () => {
+  if (!address || isProcessing) return;
+  
+  try {
+    setIsProcessing(true);
+    const tx = await claimRewards?.();
+    if (!tx) throw new Error('Failed to claim rewards');
+    await tx.wait();
+    await refetchUserInfo();
+    alert('Rewards claimed successfully');
+  } catch (error: any) {
+    console.error('Claim rewards error:', error);
+    alert(error?.message || 'Failed to claim rewards');
+  } finally {
+    setIsProcessing(false);
+  }
+};
 
-  const handleApplyReferral = async () => {
-    if (!address || isProcessing || !referralCode) return;
-    
-    try {
-      setIsProcessing(true);
-      const referralCodeNumber = parseInt(referralCode);
-      const tx = await processReferral({ args: [referralCodeNumber] });
-      await tx.wait();
-      await refetchUserInfo();
-      setReferralCode('');
-      alert('Referral code applied successfully');
-    } catch (error: any) {
-      console.error('Apply referral error:', error);
-      let message = 'Failed to apply referral code';
-      if (error.message.includes('Already has referrer')) {
-        message = 'You already have a referrer';
-      } else if (error.message.includes('Must have active deposit')) {
-        message = 'Please make a deposit first';
-      }
-      alert(message);
-    } finally {
-      setIsProcessing(false);
-    }
-  };
+const handleClaimReferralRewards = async () => {
+  if (!address || isProcessing) return;
+  
+  try {
+    setIsProcessing(true);
+    const tx = await claimReferralRewards?.();
+    if (!tx) throw new Error('Failed to claim referral rewards');
+    await tx.wait();
+    await refetchUserInfo();
+    alert('Referral rewards claimed successfully');
+  } catch (error: any) {
+    console.error('Claim referral rewards error:', error);
+    alert(error?.message || 'Failed to claim referral rewards');
+  } finally {
+    setIsProcessing(false);
+  }
+};
+
+const handleGenerateReferralCode = async () => {
+  if (!address || isProcessing) return;
+  
+  try {
+    setIsProcessing(true);
+    const tx = await generateReferralCode?.();
+    if (!tx) throw new Error('Failed to generate referral code');
+    await tx.wait();
+    await refetchUserInfo();
+    alert('Referral code generated successfully');
+  } catch (error: any) {
+    console.error('Generate referral code error:', error);
+    alert(error?.message || 'Failed to generate referral code');
+  } finally {
+    setIsProcessing(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gray-50 py-6">
