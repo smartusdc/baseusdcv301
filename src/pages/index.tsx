@@ -179,7 +179,17 @@ export default function Home() {
     functionName: 'users',
     args: [address ?? '0x0000000000000000000000000000000000000000'],
     enabled: !!address,
-  }) as { data: UserInfo | undefined, refetch: () => void };
+    watch: true,
+    cacheTime: 0,
+    onSuccess: (data) => {
+        console.log('User Info Updated:', {
+            depositAmount: data.depositAmount.toString(),
+            formatted: formatUnits(data.depositAmount, 6),
+            timestamp: new Date().toISOString()
+        });
+    },
+}) as { data: UserInfo | undefined, refetch: () => void };
+
 
   const { data: currentAPR } = useContractRead({
     address: CONTRACT_ADDRESS,
