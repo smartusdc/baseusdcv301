@@ -393,48 +393,8 @@ export default function Home() {
     referredRate={referredRate}
   />
 ) : (
-          <div className="space-y-6">git 
-             <div>Connected!</div>
+          <div className="space-y-6">
 
- {/* 状態表示を追加したテストコード */}
- <div className="bg-white p-4 rounded">
-    <p>State Debug:</p>
-    <ul>
-      <li>isConnecting: {isConnecting ? 'true' : 'false'}</li>
-      <li>isDisconnected: {isDisconnected ? 'true' : 'false'}</li>
-      <li>isReady: {isReady ? 'true' : 'false'}</li>
-    </ul>
-  </div>
-
-{/* これまでの表示（正常動作確認済み） */}
-{isReady && (
-    <div className="bg-white p-4 rounded">
-      <p>Connection Status</p>
-      <p>Address: {address}</p>
-      <p>Has UserInfo: {userInfo ? 'Yes' : 'No'}</p>
-    </div>
-  )}
-
-  {/* userInfoの個別プロパティテスト */}
-  {isReady && userInfo && (
-    <div className="bg-white p-4 rounded mt-4">
-      <p>UserInfo Properties</p>
-      <p>Has depositAmount: {typeof userInfo.depositAmount !== 'undefined' ? 'Yes' : 'No'}</p>
-      <p>Has lastRewardTimestamp: {typeof userInfo.lastRewardTimestamp !== 'undefined' ? 'Yes' : 'No'}</p>
-      <p>Raw depositAmount: {userInfo.depositAmount?.toString() || 'N/A'}</p>
-    </div>
-  )}
-
-  {/* 安全なアクセステスト */}
-  {isReady && userInfo && (
-    <div className="bg-white p-4 rounded mt-4">
-      <p>Safe Access Test</p>
-      <p>Deposit: {userInfo?.depositAmount ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC</p>
-      <p>Timestamp: {userInfo?.lastRewardTimestamp?.toString() || 'Not set'}</p>
-    </div>
-  )}
-
-             
         {/* Staking Card */}
 <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
   <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
