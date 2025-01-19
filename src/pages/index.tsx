@@ -72,62 +72,112 @@ const LandingContent: React.FC<{
    {/* 以下のセクションは白背景に戻す */}
    <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
-        {/* Evolution Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">The Evolution of Digital Finance</h2>
-          <p className="mb-6">
-            Bitcoin revolutionized finance by solving the digital record-keeping challenge. USDC, backed by 
-            Coinbase's institutional framework and regular audits, then achieved something remarkable: 
-            bringing the stability of US dollars into the digital age with perfect one-to-one value maintenance.
-          </p>
-        </div>
+        {/* Hero Section */}
+<div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
+  <h1 className="text-4xl font-bold mb-6">
+    Building the Future of Finance on BASE Network
+  </h1>
+  <p className="text-xl mb-8 text-blue-100">
+    A Sustainable Foundation for Digital Finance, Powered by Coinbase
+  </p>
+  <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
+    <div className="flex items-center">
+      <span className="text-blue-300 mr-2">•</span>
+      Institutional Security
+    </div>
+    <div className="flex items-center">
+      <span className="text-blue-300 mr-2">•</span>
+      Community Governed
+    </div>
+    <div className="flex items-center">
+      <span className="text-blue-300 mr-2">•</span>
+      Future-Proof Infrastructure
+    </div>
+  </div>
+</div>
 
-        {/* BASE Network Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">The BASE Network Breakthrough</h2>
-          <p className="mb-6">
-            While maintaining Ethereum's proven security model, BASE Network achieved a revolutionary 
-            breakthrough: reducing transaction costs to just 0.1% of traditional fees. This advancement, 
-            developed by Coinbase's engineering team, makes large-scale adoption practical for the first time.
-          </p>
-        </div>
+{/* Main Content Section */}
+<div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
+  {/* USDC Section */}
+  <div className="mb-12">
+    <h2 className="text-2xl font-bold mb-4">The Foundation of Digital Finance</h2>
+    <p className="mb-6">
+      USDC represents the evolution of digital currency, combining the stability of US dollars with 
+      the efficiency of blockchain technology. Each USDC is backed one-to-one by US dollar reserves 
+      and regularly audited under Coinbase's institutional framework, providing a secure foundation 
+      for the future of finance.
+    </p>
+  </div>
 
-        {/* Steps Section */}
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="text-xl font-bold mb-3">Create Coinbase Account</h3>
-            <p>Start by creating a Coinbase account to purchase USDC. This is your gateway to cryptocurrency.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="text-xl font-bold mb-3">Setup Wallet</h3>
-            <p>Install MetaMask and purchase USDC from Coinbase. Transfer USDC to your MetaMask wallet.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="text-xl font-bold mb-3">Connect to BASE</h3>
-            <p>Switch to BASE Network using MetaMask. BASE is Coinbase's secure and efficient network.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="text-xl font-bold mb-3">Start Staking</h3>
-            <p>Connect wallet and start earning rewards. You can start with as little as $1 USDC.</p>
-          </div>
-        </div>
+  {/* BASE Network Section */}
+  <div className="mb-12">
+    <h2 className="text-2xl font-bold mb-4">The Power of BASE Network</h2>
+    <p className="mb-6">
+      Built on Coinbase's BASE Network, our platform inherits the robust security model that 
+      protects billions in assets while delivering unprecedented efficiency. This infrastructure 
+      enables sustainable growth and widespread adoption of digital finance services.
+    </p>
+  </div>
 
-        {/* FAQ Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3">How safe is my investment?</h3>
-              <p>Your funds are secured by smart contracts on the BASE Network, operated by Coinbase. 
-                All contracts are public and verifiable, ensuring complete transparency.</p>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3">Can I withdraw anytime?</h3>
-              <p>Yes, you can withdraw your funds at any time without any restrictions or fees. 
-                Your funds remain under your control.</p>
-            </div>
-          </div>
-        </div>
+  {/* Governance Section - New */}
+  <div className="mb-12">
+    <h2 className="text-2xl font-bold mb-4">Community Governance</h2>
+    <p className="mb-6">
+      As our platform matures, governance tokens will be distributed to early participants, 
+      enabling direct involvement in the platform's future development. This isn't just about 
+      early access - it's an opportunity to become a key stakeholder in shaping the next 
+      generation of financial infrastructure.
+    </p>
+  </div>
+
+  {/* Steps Section - Enhanced */}
+  <div className="grid md:grid-cols-4 gap-6 mb-12">
+    <div className="bg-white p-6 rounded-lg shadow">
+      <h3 className="text-xl font-bold mb-3">Start with Coinbase</h3>
+      <p>Begin your journey with a trusted platform. Create a Coinbase account to access USDC 
+        with full regulatory compliance and security.</p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow">
+      <h3 className="text-xl font-bold mb-3">Setup Your Wallet</h3>
+      <p>Connect your preferred wallet through WalletConnect. We support MetaMask, Coinbase Wallet, 
+        and other major wallets.</p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow">
+      <h3 className="text-xl font-bold mb-3">Join BASE Network</h3>
+      <p>Experience the efficiency of Coinbase's BASE Network with minimal fees and 
+        maximum security.</p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow">
+      <h3 className="text-xl font-bold mb-3">Participate & Earn</h3>
+      <p>Start with any amount from $1 USDC. Early participants gain opportunities for 
+        future governance rights.</p>
+    </div>
+  </div>
+
+  {/* Enhanced FAQ Section */}
+  <div className="mb-12">
+    <h2 className="text-2xl font-bold mb-6">Common Questions</h2>
+    <div className="space-y-6">
+      <div className="bg-gray-50 p-6 rounded-lg">
+        <h3 className="text-xl font-bold mb-3">How is my security ensured?</h3>
+        <p>Your funds are protected by the same security infrastructure that safeguards billions 
+          in assets on Coinbase's networks. All smart contracts are publicly verifiable and 
+          regularly audited, ensuring maximum transparency and security.</p>
+      </div>
+      <div className="bg-gray-50 p-6 rounded-lg">
+        <h3 className="text-xl font-bold mb-3">What about platform governance?</h3>
+        <p>Early participants will receive governance tokens based on their platform engagement, 
+          enabling them to help shape the platform's future development. The earlier and more 
+          consistently you participate, the greater your potential governance allocation.</p>
+      </div>
+      <div className="bg-gray-50 p-6 rounded-lg">
+        <h3 className="text-xl font-bold mb-3">Can I withdraw at any time?</h3>
+        <p>Yes, you maintain full control of your funds with no withdrawal restrictions or fees. 
+          Our smart contracts ensure transparent and immediate access to your assets.</p>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
       </div>
   );
