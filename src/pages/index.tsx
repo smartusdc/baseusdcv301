@@ -406,11 +406,19 @@ export default function Home() {
     </ul>
   </div>
 
- {/* userInfoを使わないテストコード */}
- {isReady && (
+{/* Step 1: 基本接続情報（これは正常動作確認済み） */}
+{isReady && (
     <div className="bg-white p-4 rounded">
-      <p>Test Display</p>
+      <p>Connection Status</p>
       <p>Address: {address}</p>
+    </div>
+  )}
+
+  {/* Step 2: userInfoの状態のみを表示（値は使わない） */}
+  {isReady && (
+    <div className="bg-white p-4 rounded mt-4">
+      <p>UserInfo Status</p>
+      <p>Has UserInfo: {userInfo ? 'Yes' : 'No'}</p>
     </div>
   )}
 
