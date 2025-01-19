@@ -406,8 +406,8 @@ export default function Home() {
     </ul>
   </div>
 
-  {/* 実際のテスト */}
-  {!isConnecting && !isDisconnected && (
+  {/* より安全なテストコード */}
+  {isReady && !isConnecting && !isDisconnected && (
     <div className="bg-white p-4 rounded">
       <p>Test Display</p>
       <p>Deposit Amount: {userInfo ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC</p>
