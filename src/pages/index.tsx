@@ -176,19 +176,31 @@ export default function Home() {
   const { data: userInfo, refetch: refetchUserInfo } = useContractRead({
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
-    functionName: 'users',
+    functionName: 'getUserInfo',  // 'users' から 'getUserInfo' に変更
     args: [address ?? '0x0000000000000000000000000000000000000000'],
     enabled: !!address,
     watch: true,
     cacheTime: 0,
     onSuccess: (data) => {
-        console.log('User Info Updated:', {
-            depositAmount: data.depositAmount.toString(),
-            formatted: formatUnits(data.depositAmount, 6),
-            timestamp: new Date().toISOString()
-        });
-    },
-}) as { data: UserInfo | undefined, refetch: () => void };
+      console.log('User Info Updated:', {
+          depositAmount: {
+              raw: data[0].toString(),
+              formatted: formatUnits(data[0], 6)
+          },
+          pendingRewards: {
+              raw: data[1].toString(),
+              formatted: formatUnits(data[1], 6)
+          },
+          userReferralRewards: {
+              raw: data[2].toString(),
+              formatted: formatUnits(data[2], 6)
+          },
+          totalReferrals: data[3].toString(),
+          isFrozen: data[4],
+          timestamp: new Date().toISOString()
+      });
+  },
+}) as { data: [bigint, bigint, bigint, bigint, boolean] | undefined, refetch: () => void };
 
 
   const { data: currentAPR } = useContractRead({
@@ -490,13 +502,13 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
           <div className="p-4 bg-gray-50 rounded-lg">
             <p className="text-sm text-gray-600 mb-1">Your Stake</p>
             <p className="text-lg font-semibold">
-              {userInfo?.depositAmount ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC
-            </p>
+  {userInfo?.[0] ? formatUnits(userInfo[0], 6) : '0'} USDC
+</p>
           </div>
           <div className="p-4 bg-gray-50 rounded-lg">
             <p className="text-sm text-gray-600 mb-1">Pending Rewards</p>
             <p className="text-lg font-semibold text-green-600">
-              {userInfo?.pendingRewards ? formatUnits(userInfo.pendingRewards, 6) : '0'} USDC
+            {userInfo?.[1] ? formatUnits(userInfo[1], 6) : '0'} USDC
             </p>
           </div>
         </div>
@@ -551,12 +563,12 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
   <h2 className="text-xl font-semibold mb-4">Available Rewards</h2>
   {isReady && userInfo && (
     <div className="space-y-4">
-      {userInfo?.pendingRewards && userInfo.pendingRewards > 0n ? (
+     {userInfo?.[1] && userInfo[1] > 0n ? (
         <>
           <div className="p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-lg">
             <h3 className="text-lg font-semibold mb-2">Rewards Available</h3>
             <p className="text-2xl font-bold text-green-600">
-              {formatUnits(userInfo.pendingRewards, 6)} USDC
+            {formatUnits(userInfo[1], 6)} USDC
             </p>
           </div>
           <button
@@ -582,7 +594,8 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
   <h2 className="text-xl font-semibold mb-4">Referral Program</h2>
   {isReady && userInfo && (
     <>
-      {!userInfo?.totalReferrals || userInfo.totalReferrals === 0n ? (
+     {!userInfo?.[3] || userInfo[3] === 0n ?
+ (
         <button
           onClick={handleGenerateReferralCode}
           disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
@@ -594,13 +607,13 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
         <div className="p-6 bg-blue-50 rounded-lg">
           <p className="text-sm text-gray-600 mb-2">Your Referral Code</p>
           <p className="text-xl font-semibold text-blue-600">
-            {userInfo?.totalReferrals?.toString() || '0'}
+          {userInfo[3].toString() || '0'}
           </p>
           <div className="mt-4 pt-4 border-t border-blue-100">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Total Referrals</span>
               <span className="font-semibold">
-                {userInfo?.totalReferrals?.toString() || '0'}
+              {userInfo[3].toString() || '0'}
               </span>
             </div>
           </div>
