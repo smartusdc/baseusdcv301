@@ -649,18 +649,19 @@ useEffect(() => {
   <h2 className="text-xl font-semibold mb-4">Referral Program</h2>
   {isReady && userInfo && (
     <>
-      {userInfo[3] > 0n ? (
+      {existingReferralCode && existingReferralCode > 0n ? (
+        // リファラルコードを持っているユーザー向けの表示
         <div className="space-y-4">
           <div className="p-4 bg-blue-50 rounded-lg">
             <div className="mb-4">
               <h3 className="text-sm font-medium text-gray-600">Your Referral Code</h3>
               <div className="flex items-center gap-2">
                 <span className="text-2xl font-bold text-blue-600">
-                  {userInfo[3].toString()}
+                  {existingReferralCode.toString()}
                 </span>
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText(userInfo[3].toString());
+                    navigator.clipboard.writeText(existingReferralCode.toString());
                     alert('Referral code copied!');
                   }}
                   className="text-sm text-blue-600 hover:text-blue-700"
@@ -684,6 +685,7 @@ useEffect(() => {
           </div>
         </div>
       ) : (
+        // リファラルコードを持っていないユーザー向けの表示
         <button
           onClick={handleGenerateReferralCode}
           disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
