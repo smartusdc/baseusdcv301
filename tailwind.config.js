@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '22': '5.5rem', // 88px
+      },
       colors: {
         // もし必要なら、カスタムカラーをここに追加
       },
