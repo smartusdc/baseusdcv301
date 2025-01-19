@@ -303,8 +303,11 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
     functionName: 'generateReferralCode',
-    enabled: !!address,
-  });
+    enabled: !!address && !isProcessing,
+    onError: (error) => {
+        console.error('Prepare generate referral code error:', error);
+    }
+});
   const { writeAsync: generateReferralCode } = useContractWrite(generateReferralCodeConfig);
 
   const { config: processReferralConfig } = usePrepareContractWrite({
