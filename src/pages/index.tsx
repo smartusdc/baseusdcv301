@@ -387,7 +387,6 @@ export default function Home() {
 ) : (
           <div className="space-y-6">git 
              <div>Connected!</div>
-        {/* 
           {/* Staking Card */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
@@ -410,7 +409,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
- 
+  {/*
               {!userInfo?.hasReferrer && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -435,7 +434,7 @@ export default function Home() {
                   </div>
                 </div>
               )}
-
+*/}
               <button
                 onClick={handleStake}
                 disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
