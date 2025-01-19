@@ -59,6 +59,7 @@ const LandingContent: React.FC<{
       Community Governance
     </div>
   </div>
+  </div>
    {/* 以下のセクションは白背景に戻す */}
    <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
@@ -120,7 +121,6 @@ const LandingContent: React.FC<{
         </div>
       </div>
       </div>
-    </div>
   );
 };
 
