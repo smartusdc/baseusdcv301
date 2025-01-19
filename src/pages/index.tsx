@@ -397,10 +397,10 @@ export default function Home() {
              <div>Connected!</div>
 
   {/* テスト用の最小限のコード */}
-  {isReady && userInfo && (
+  {isReady && !isConnecting && address && (
     <div className="bg-white p-4 rounded">
       <p>Test Display</p>
-      <p>Deposit Amount: {formatUnits(userInfo.depositAmount, 6)} USDC</p>
+      <p>Deposit Amount: {userInfo ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC</p>
     </div>
   )}
              
