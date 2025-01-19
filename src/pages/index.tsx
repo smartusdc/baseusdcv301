@@ -406,19 +406,22 @@ export default function Home() {
     </ul>
   </div>
 
-{/* Step 1: 基本接続情報（これは正常動作確認済み） */}
+{/* これまでの表示（正常動作確認済み） */}
 {isReady && (
     <div className="bg-white p-4 rounded">
       <p>Connection Status</p>
       <p>Address: {address}</p>
+      <p>Has UserInfo: {userInfo ? 'Yes' : 'No'}</p>
     </div>
   )}
 
-  {/* Step 2: userInfoの状態のみを表示（値は使わない） */}
-  {isReady && (
+  {/* userInfoの個別プロパティテスト */}
+  {isReady && userInfo && (
     <div className="bg-white p-4 rounded mt-4">
-      <p>UserInfo Status</p>
-      <p>Has UserInfo: {userInfo ? 'Yes' : 'No'}</p>
+      <p>UserInfo Properties</p>
+      <p>Has depositAmount: {typeof userInfo.depositAmount !== 'undefined' ? 'Yes' : 'No'}</p>
+      <p>Has lastRewardTimestamp: {typeof userInfo.lastRewardTimestamp !== 'undefined' ? 'Yes' : 'No'}</p>
+      <p>Raw depositAmount: {userInfo.depositAmount?.toString() || 'N/A'}</p>
     </div>
   )}
 
