@@ -373,7 +373,7 @@ export default function Home() {
   <div className="container mx-auto px-4">
     <div className="flex justify-between items-center h-22">
       <div className="flex items-center">
-        <img src="/logo.png" alt="BASEUSDC.COM" className="h-8 w-auto" />
+        <img src="/logo.png" alt="BASEUSDC.COM" className="h-14 w-auto" />
       </div>
       <div className="ml-auto">
         <ConnectButton />
