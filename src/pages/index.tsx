@@ -224,7 +224,9 @@ export default function Home() {
     console.log('========================');
   }, [address, isConnecting, isDisconnected, isReady, chain, userInfo, currentAPR, referrerRate, referredRate]);
   
-
+  useEffect(() => {
+    console.log('Current userInfo:', userInfo);
+  }, [userInfo]);
 
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
