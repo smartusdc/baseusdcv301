@@ -21,20 +21,29 @@ const LandingContent: React.FC<{
 }> = ({ currentAPR, referrerRate, referredRate }) => {
   return (
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-3 gap-6 mb-12">
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-2">Current APR</h2>
-          <p className="text-3xl text-blue-600">{formatAPR(currentAPR)}%</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-2">Referrer Reward</h2>
-          <p className="text-3xl text-blue-600">{formatAPR(referrerRate)}%</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-2">Referred Reward</h2>
-          <p className="text-3xl text-blue-600">{formatAPR(referredRate)}%</p>
-        </div>
+      <div className="mb-12">
+  <div className="bg-gradient-to-br from-base-50 to-white p-8 rounded-2xl shadow-lg border border-base-100">
+    <div className="text-center mb-8">
+      <h2 className="text-xl font-bold text-base-900 mb-2">Current APR</h2>
+      <div className="flex items-baseline justify-center">
+        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-base-600 to-base-800 bg-clip-text text-transparent">
+          {formatAPR(currentAPR)}
+        </span>
+        <span className="text-4xl md:text-5xl font-bold text-base-600">%</span>
       </div>
+    </div>
+    <div className="grid md:grid-cols-2 gap-4">
+      <div className="stats-card">
+        <h3 className="text-base font-medium text-gray-600 mb-1">Referrer Reward</h3>
+        <p className="text-2xl font-bold text-base-600">{formatAPR(referrerRate)}%</p>
+      </div>
+      <div className="stats-card">
+        <h3 className="text-base font-medium text-gray-600 mb-1">Referred Reward</h3>
+        <p className="text-2xl font-bold text-base-600">{formatAPR(referredRate)}%</p>
+      </div>
+    </div>
+  </div>
+</div>
       {/* 既存の残りのLandingContentコードはそのまま */}
 
 
