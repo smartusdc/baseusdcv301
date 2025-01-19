@@ -435,53 +435,51 @@ export default function Home() {
   )}
 
              
-          {/* Staking Card */}{/*
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Amount
-                </label>
-                <div className="relative rounded-lg shadow-sm">
-                  <input
-                    type="number"
-                    value={inputAmount}
-                    onChange={(e) => setInputAmount(e.target.value)}
-                    placeholder={`Min ${MIN_DEPOSIT} USDC`}
-                    className="w-full rounded-lg border-gray-300 pr-12 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    disabled={isProcessing}
-                  />
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <span className="text-gray-500 sm:text-sm">USDC</span>
-                  </div>
-                </div>
-              </div>
- 
-              {!userInfo?.hasReferrer && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Referral Code (Optional)
-                  </label>
-                  <div className="flex space-x-2">
-                    <input
-                      type="text"
-                      value={referralCode}
-                      onChange={(e) => setReferralCode(e.target.value)}
-                      placeholder="Enter referral code"
-                      className="flex-1 rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      disabled={isProcessing}
-                    />
-                    <button
-                      onClick={handleApplyReferral}
-                      disabled={isProcessing || !referralCode}
-                      className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:bg-gray-400 transition-colors"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              )}
+        {/* Staking Card */}
+<div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+  <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
+  <div className="space-y-4">
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Amount
+      </label>
+      <div className="relative rounded-lg shadow-sm">
+        <input
+          type="number"
+          value={inputAmount}
+          onChange={(e) => setInputAmount(e.target.value)}
+          placeholder={`Min ${MIN_DEPOSIT} USDC`}
+          className="w-full rounded-lg border-gray-300 pr-12 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          disabled={isProcessing}
+        />
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <span className="text-gray-500 sm:text-sm">USDC</span>
+        </div>
+      </div>
+    </div>
+
+    {/* userInfo表示部分を安全なアクセスに修正 */}
+    {userInfo && (
+      <div className="mt-6 pt-6 border-t border-gray-100">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <p className="text-sm text-gray-600 mb-1">Your Stake</p>
+            <p className="text-lg font-semibold">
+              {userInfo?.depositAmount ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC
+            </p>
+          </div>
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <p className="text-sm text-gray-600 mb-1">Pending Rewards</p>
+            <p className="text-lg font-semibold text-green-600">
+              {userInfo?.pendingRewards ? formatUnits(userInfo.pendingRewards, 6) : '0'} USDC
+            </p>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+{/* 
 
               <button
                 onClick={handleStake}
