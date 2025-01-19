@@ -141,6 +141,7 @@ const BASE_CHAIN_ID = 8453;
 const MIN_DEPOSIT = '0.01';
 
 export default function Home() {
+  
   // State Management
   const { address, isConnecting, isDisconnected } = useAccount();
   const [isReady, setIsReady] = React.useState(false);
@@ -189,6 +190,21 @@ export default function Home() {
     watch: true,
   });
   
+  useEffect(() => {
+    console.log('State Update:', {
+      address,
+      isConnecting,
+      isDisconnected,
+      isReady,
+      chain: chain?.id,
+      userInfo: userInfo ? 'exists' : 'undefined',
+      currentAPR: currentAPR?.toString(),
+      referrerRate: referrerRate?.toString(),
+      referredRate: referredRate?.toString(),
+      timestamp: new Date().toISOString()
+    });
+  }, [address, isConnecting, isDisconnected, isReady, chain, userInfo, currentAPR, referrerRate, referredRate]);
+
 
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
