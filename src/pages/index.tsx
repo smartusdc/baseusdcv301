@@ -386,8 +386,9 @@ export default function Home() {
   />
 ) : (
           <div className="space-y-6">
-
-          {/* Staking Card */}
+             <div>Connected!</div>
+        {/* 
+          {/* Staking Card */}{/* 
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
             <div className="space-y-4">
@@ -464,7 +465,7 @@ export default function Home() {
             )}
           </div>
 
-          {/* Rewards Card */}
+          {/* Rewards Card */}{/* 
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold mb-4">Available Rewards</h2>
             {userInfo?.pendingRewards > 0n ? (
@@ -490,7 +491,7 @@ export default function Home() {
             )}
           </div>
 
-                   {/* Referral Program Card */}
+                   {/* Referral Program Card */}{/* 
                    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold mb-4">Referral Program</h2>
             {!userInfo?.totalReferrals || userInfo.totalReferrals === 0n ? (
@@ -518,6 +519,7 @@ export default function Home() {
               </div>
             )}
           </div>
+        */}
           </div>
       )}
 
