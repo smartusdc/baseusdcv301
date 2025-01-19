@@ -259,6 +259,16 @@ export default function Home() {
     console.log('Current userInfo:', userInfo);
   }, [userInfo]);
 
+  useEffect(() => {
+    console.log('Referral Code Status:', {
+      existingReferralCode: existingReferralCode?.toString(),
+      userInfoReferral: userInfo?.[3]?.toString(),
+      isProcessing,
+      address
+    });
+  }, [existingReferralCode, userInfo, isProcessing, address]);
+
+
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
     abi: usdcABI,
@@ -412,21 +422,35 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
   };
 
   const handleGenerateReferralCode = async () => {
-    if (!address || isProcessing) return;
+    if (!address || isProcessing) {
+        console.log('Early return condition met:', { address, isProcessing });
+        return;
+    }
     
     try {
-      setIsProcessing(true);
-      const tx = await generateReferralCode?.();
-      if (!tx) throw new Error('Failed to generate referral code');
-      await refetchUserInfo();
-      alert('Referral code generated successfully');
+        setIsProcessing(true);
+        console.log('Attempting to generate referral code');
+        
+        const tx = await generateReferralCode?.();
+        if (!tx) {
+            console.log('No transaction object returned');
+            throw new Error('Failed to generate referral code - No transaction');
+        }
+        
+        console.log('Transaction sent:', tx);
+        // wait() を削除し、直接次の処理へ
+        
+        await refetchUserInfo();
+        alert('Referral code generated successfully');
     } catch (error: any) {
-      console.error('Generate referral code error:', error);
-      alert(error?.message || 'Failed to generate referral code');
+        console.error('Generate referral code error:', error);
+        alert(`Failed to generate referral code: ${error.message}`);
     } finally {
-      setIsProcessing(false);
+        setIsProcessing(false);
     }
-  };
+};
+
+
 
   const handleApplyReferral = async () => {
     if (!address || isProcessing || !referralCode) return;
