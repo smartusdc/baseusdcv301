@@ -167,6 +167,7 @@ export default function Home() {
   const { chain } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
   const [inputAmount, setInputAmount] = useState('');
+  const [withdrawAmount, setWithdrawAmount] = useState(''); // 追加
   const [referralCode, setReferralCode] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [processReferralCode, setProcessReferralCode] = useState<number | undefined>();
@@ -252,6 +253,20 @@ export default function Home() {
   });
   const { writeAsync: stake } = useContractWrite(stakeConfig);
 
+
+// Contract Write Operations の箇所に追加
+const { config: withdrawConfig } = usePrepareContractWrite({
+  address: CONTRACT_ADDRESS,
+  abi: stakingABI,
+  functionName: 'withdraw',
+  args: [parseUnits(inputAmount || '0', 6)],
+  enabled: !!address && !!inputAmount,
+});
+
+const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
+
+
+
   const { config: claimRewardsConfig } = usePrepareContractWrite({
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
@@ -315,6 +330,32 @@ export default function Home() {
       setIsProcessing(false);
     }
   };
+
+
+  const handleWithdraw = async () => {
+    if (!address || isProcessing) return;
+    if (!withdrawAmount || parseFloat(withdrawAmount) < parseFloat(MIN_DEPOSIT)) {
+      alert(`Minimum withdrawal amount is ${MIN_DEPOSIT} USDC`);
+      return;
+    }
+  
+    try {
+      setIsProcessing(true);
+      const withdrawTx = await withdraw?.();
+      if (!withdrawTx) throw new Error('Failed to withdraw');
+      await refetchUserInfo();
+      
+      setWithdrawAmount('');
+      alert('Withdrawal successful');
+    } catch (error: any) {
+      console.error('Withdrawal error:', error);
+      alert(error?.message || 'Failed to withdraw');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+
 
   const handleClaimRewards = async () => {
     if (!address || isProcessing) return;
@@ -459,7 +500,37 @@ export default function Home() {
   {isProcessing ? 'Processing...' : 'Stake USDC'}
 </button>
 
-
+{/* Withdraw Card */}
+<div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+  <h2 className="text-xl font-semibold mb-6">Withdraw USDC</h2>
+  <div className="space-y-4">
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Withdraw Amount
+      </label>
+      <div className="relative rounded-lg shadow-sm">
+        <input
+          type="number"
+          value={withdrawAmount}
+          onChange={(e) => setWithdrawAmount(e.target.value)}
+          placeholder={`Min ${MIN_DEPOSIT} USDC`}
+          className="w-full rounded-lg border-gray-300 pr-12 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          disabled={isProcessing}
+        />
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <span className="text-gray-500 sm:text-sm">USDC</span>
+        </div>
+      </div>
+    </div>
+    <button
+      onClick={handleWithdraw}
+      disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
+      className="w-full bg-red-600 text-white rounded-lg py-4 font-medium hover:bg-red-700 disabled:bg-red-400 transition-colors"
+    >
+      {isProcessing ? 'Processing...' : 'Withdraw USDC'}
+    </button>
+  </div>
+</div>
 
 
 
