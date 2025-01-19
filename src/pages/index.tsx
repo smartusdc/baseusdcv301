@@ -8,25 +8,35 @@ import { stakingABI } from '../abis/stakingABI';
 import { usdcABI } from '../abis/usdcABI';
 import { CONTRACTS } from '../abis/contracts';
 
+const formatAPR = (value: bigint | undefined): string => {
+  if (!value) return '0';
+  return (Number(value) / 100).toString();
+};
+
 // 既存のimport文の後に
-const LandingContent = () => {
+const LandingContent: React.FC<{
+  currentAPR?: bigint;
+  referrerRate?: bigint;
+  referredRate?: bigint;
+}> = ({ currentAPR, referrerRate, referredRate }) => {
   return (
     <div className="container mx-auto px-4">
-      {/* APR Info */}
       <div className="grid grid-cols-3 gap-6 mb-12">
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-bold mb-2">Current APR</h2>
-          <p className="text-3xl text-blue-600">0%</p>
+          <p className="text-3xl text-blue-600">{formatAPR(currentAPR)}%</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-bold mb-2">Referrer Reward</h2>
-          <p className="text-3xl text-blue-600">0%</p>
+          <p className="text-3xl text-blue-600">{formatAPR(referrerRate)}%</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-bold mb-2">Referred Reward</h2>
-          <p className="text-3xl text-blue-600">0%</p>
+          <p className="text-3xl text-blue-600">{formatAPR(referredRate)}%</p>
         </div>
       </div>
+      {/* 既存の残りのLandingContentコードはそのまま */}
+
 
       {/* Main Content */}
       <div className="bg-white p-8 rounded-lg shadow mb-12">
@@ -157,6 +167,28 @@ export default function Home() {
     args: [address ?? '0x0000000000000000000000000000000000000000'],
     enabled: !!address,
   }) as { data: UserInfo | undefined, refetch: () => void };
+
+  const { data: currentAPR } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: stakingABI,
+    functionName: 'currentAPR',
+    watch: true,
+  });
+  
+  const { data: referrerRate } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: stakingABI,
+    functionName: 'referrerRewardRate',
+    watch: true,
+  });
+  
+  const { data: referredRate } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: stakingABI,
+    functionName: 'referredRewardRate',
+    watch: true,
+  });
+  
 
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
@@ -331,7 +363,11 @@ export default function Home() {
 
 {/* ここから条件分岐を追加 */}
 {!address || isDisconnected ? (
-  <LandingContent />
+  <LandingContent
+    currentAPR={currentAPR}
+    referrerRate={referrerRate}
+    referredRate={referredRate}
+  />
 ) : (
           <div className="space-y-6">
 
