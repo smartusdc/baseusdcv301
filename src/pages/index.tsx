@@ -406,11 +406,11 @@ export default function Home() {
     </ul>
   </div>
 
-  {/* より安全なテストコード */}
-  {isReady && !isConnecting && !isDisconnected && (
+ {/* userInfoを使わないテストコード */}
+ {isReady && (
     <div className="bg-white p-4 rounded">
       <p>Test Display</p>
-      <p>Deposit Amount: {userInfo ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC</p>
+      <p>Address: {address}</p>
     </div>
   )}
 
