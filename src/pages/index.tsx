@@ -479,36 +479,17 @@ export default function Home() {
     )}
   </div>
 </div>
-{/* 
+<button
+  onClick={handleStake}
+  disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
+  className="w-full bg-blue-600 text-white rounded-lg py-4 font-medium hover:bg-blue-700 disabled:bg-blue-400 transition-colors"
+>
+  {isProcessing ? 'Processing...' : 'Stake USDC'}
+</button>
 
-              <button
-                onClick={handleStake}
-                disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
-                className="w-full bg-blue-600 text-white rounded-lg py-4 font-medium hover:bg-blue-700 disabled:bg-blue-400 transition-colors"
-              >
-                {isProcessing ? 'Processing...' : 'Stake USDC'}
-              </button>
-            </div>
 
-            {userInfo && (
-              <div className="mt-6 pt-6 border-t border-gray-100">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-600 mb-1">Your Stake</p>
-                    <p className="text-lg font-semibold">
-                      {formatUnits(userInfo.depositAmount, 6)} USDC
-                    </p>
-                  </div>
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-600 mb-1">Pending Rewards</p>
-                    <p className="text-lg font-semibold text-green-600">
-                      {formatUnits(userInfo.pendingRewards, 6)} USDC
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+
+
 
           {/* Rewards Card */}{/* 
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
