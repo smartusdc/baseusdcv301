@@ -647,9 +647,10 @@ useEffect(() => {
 {/* Referral Program Card */}
 <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
   <h2 className="text-xl font-semibold mb-4">Referral Program</h2>
-  {isReady && userInfo && (
+  {isReady && (
     <>
-      {userInfo[3] > 0n ? (
+      {existingReferralCode && existingReferralCode > 0n ? (
+
         <div className="space-y-4">
           <div className="p-4 bg-blue-50 rounded-lg">
             <div className="mb-4">
