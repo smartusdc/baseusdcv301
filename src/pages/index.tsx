@@ -45,30 +45,6 @@ const LandingContent: React.FC<{
   </div>
 </div>
       {/* 既存の残りのLandingContentコードはそのまま */}
-
-
-      <div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
-  <h1 className="text-4xl font-bold mb-6">
-    The Future of Finance on Coinbase's BASE Network
-  </h1>
-  <p className="text-xl mb-8 text-blue-100">
-    Join the Next Evolution in Digital Asset Infrastructure
-  </p>
-  <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
-    <div className="flex items-center">
-      <span className="text-blue-300 mr-2">•</span>
-      Institutional-Grade Security
-    </div>
-    <div className="flex items-center">
-      <span className="text-blue-300 mr-2">•</span>
-      Breakthrough Technology
-    </div>
-    <div className="flex items-center">
-      <span className="text-blue-300 mr-2">•</span>
-      Community Governance
-    </div>
-  </div>
-  </div>
    {/* 以下のセクションは白背景に戻す */}
    <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
