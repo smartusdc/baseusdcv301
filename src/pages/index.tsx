@@ -330,12 +330,12 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
 
 // デバッグログを追加
 useEffect(() => {
-  console.log('Generate Referral Code Config Status:', {
-      hasConfig: !!generateReferralCodeConfig,
-      address,
-      isProcessing,
-      existingReferralCode: existingReferralCode?.toString()
-  });
+    console.log('Generate Referral Code Config Status:', {
+        hasConfig: !!generateReferralCodeConfig,
+        address,
+        isProcessing,
+        existingReferralCode: existingReferralCode?.toString()
+    });
 }, [generateReferralCodeConfig, address, isProcessing, existingReferralCode]);
 
   const { writeAsync: generateReferralCode } = useContractWrite(generateReferralCodeConfig);
@@ -647,10 +647,9 @@ useEffect(() => {
 {/* Referral Program Card */}
 <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
   <h2 className="text-xl font-semibold mb-4">Referral Program</h2>
-  {isReady && (
+  {isReady && userInfo && (
     <>
-      {existingReferralCode && existingReferralCode > 0n ? (
-
+      {userInfo[3] > 0n ? (
         <div className="space-y-4">
           <div className="p-4 bg-blue-50 rounded-lg">
             <div className="mb-4">
