@@ -425,6 +425,15 @@ export default function Home() {
     </div>
   )}
 
+  {/* 安全なアクセステスト */}
+  {isReady && userInfo && (
+    <div className="bg-white p-4 rounded mt-4">
+      <p>Safe Access Test</p>
+      <p>Deposit: {userInfo?.depositAmount ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC</p>
+      <p>Timestamp: {userInfo?.lastRewardTimestamp?.toString() || 'Not set'}</p>
+    </div>
+  )}
+
              
           {/* Staking Card */}{/*
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
