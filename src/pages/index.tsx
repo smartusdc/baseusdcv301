@@ -261,8 +261,8 @@ const { config: withdrawConfig } = usePrepareContractWrite({
   address: CONTRACT_ADDRESS,
   abi: stakingABI,
   functionName: 'withdraw',
-  args: [parseUnits(inputAmount || '0', 6)],
-  enabled: !!address && !!inputAmount,
+  args: [parseUnits(withdrawAmount || '0', 6)], // inputAmount から withdrawAmount に変更
+  enabled: !!address && !!withdrawAmount,       // inputAmount から withdrawAmount に変更
 });
 
 const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
