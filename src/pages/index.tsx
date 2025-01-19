@@ -38,28 +38,29 @@ const LandingContent: React.FC<{
       {/* 既存の残りのLandingContentコードはそのまま */}
 
 
-      {/* Main Content */}
-      <div className="bg-white p-8 rounded-lg shadow mb-12">
-        <h1 className="text-4xl font-bold mb-6">
-          The Future of Finance on Coinbase's BASE Network
-        </h1>
-        <p className="text-xl mb-8">
-          Join the Next Evolution in Digital Asset Infrastructure
-        </p>
-        <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
-          <div className="flex items-center">
-            <span className="text-blue-600 mr-2">•</span>
-            Institutional-Grade Security
-          </div>
-          <div className="flex items-center">
-            <span className="text-blue-600 mr-2">•</span>
-            Breakthrough Technology
-          </div>
-          <div className="flex items-center">
-            <span className="text-blue-600 mr-2">•</span>
-            Community Governance
-          </div>
-        </div>
+      <div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
+  <h1 className="text-4xl font-bold mb-6">
+    The Future of Finance on Coinbase's BASE Network
+  </h1>
+  <p className="text-xl mb-8 text-blue-100">
+    Join the Next Evolution in Digital Asset Infrastructure
+  </p>
+  <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
+    <div className="flex items-center">
+      <span className="text-blue-300 mr-2">•</span>
+      Institutional-Grade Security
+    </div>
+    <div className="flex items-center">
+      <span className="text-blue-300 mr-2">•</span>
+      Breakthrough Technology
+    </div>
+    <div className="flex items-center">
+      <span className="text-blue-300 mr-2">•</span>
+      Community Governance
+    </div>
+  </div>
+   {/* 以下のセクションは白背景に戻す */}
+   <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
         {/* Evolution Section */}
         <div className="mb-12">
@@ -117,6 +118,7 @@ const LandingContent: React.FC<{
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
@@ -367,12 +369,11 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">  </div>
    {/* Header */}
-<header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+   <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
   <div className="container mx-auto px-4">
     <div className="flex justify-between items-center h-16">
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center">
         <img src="/logo.png" alt="BASEUSDC.COM" className="h-8 w-auto" />
-        <h1 className="text-2xl font-bold">BaseUSDC</h1>
       </div>
       <div className="ml-auto">
         <ConnectButton />
