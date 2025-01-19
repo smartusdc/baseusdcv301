@@ -682,6 +682,13 @@ useEffect(() => {
                 </p>
               </div>
             </div>
+            <button
+              onClick={handleClaimRewards}
+              disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID) || userInfo[2] <= 0n}
+              className="w-full bg-green-600 text-white rounded-lg py-4 font-medium hover:bg-green-700 disabled:bg-green-400 transition-colors mt-4"
+            >
+              {isProcessing ? 'Processing...' : 'Claim Referral Rewards'}
+            </button>
           </div>
         </div>
       ) : (
@@ -696,6 +703,32 @@ useEffect(() => {
       )}
     </>
   )}
+{/* Apply Referral Code Card */}
+<div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+  <h2 className="text-xl font-semibold mb-4">Apply Referral Code</h2>
+  <div className="space-y-4">
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Enter Referral Code
+      </label>
+      <input
+        type="text"
+        value={referralCode}
+        onChange={(e) => setReferralCode(e.target.value)}
+        placeholder="Enter referral code"
+        className="w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        disabled={isProcessing}
+      />
+    </div>
+    <button
+      onClick={handleApplyReferral}
+      disabled={isProcessing || !address || !referralCode || (chain?.id !== BASE_CHAIN_ID)}
+      className="w-full bg-blue-600 text-white rounded-lg py-4 font-medium hover:bg-blue-700 disabled:bg-blue-400 transition-colors"
+    >
+      {isProcessing ? 'Applying...' : 'Apply Referral Code'}
+    </button>
+  </div>
+</div>
 </div>
 
           </div>
