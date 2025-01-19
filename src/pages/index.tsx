@@ -223,6 +223,15 @@ export default function Home() {
     functionName: 'referredRewardRate',
     watch: true,
   });
+
+  const { data: existingReferralCode } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: stakingABI,
+    functionName: 'userToReferralCode',
+    args: [address ?? '0x0000000000000000000000000000000000000000'],
+    enabled: !!address,
+  });
+
   
   useEffect(() => {
     console.log('=== State Transition Log ===');
@@ -303,11 +312,12 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
     functionName: 'generateReferralCode',
-    enabled: !!address && !isProcessing && !userInfo?.[3], // リファラルコードが未生成の場合のみ有効
+    enabled: !!address && !isProcessing && (!existingReferralCode || existingReferralCode === 0n),
     onError: (error) => {
         console.error('Prepare generate referral code error:', error);
     }
 });
+
   const { writeAsync: generateReferralCode } = useContractWrite(generateReferralCodeConfig);
 
   const { config: processReferralConfig } = usePrepareContractWrite({
