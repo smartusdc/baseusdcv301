@@ -303,7 +303,7 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
     functionName: 'generateReferralCode',
-    enabled: !!address && !isProcessing,
+    enabled: !!address && !isProcessing && !userInfo?.[3], // リファラルコードが未生成の場合のみ有効
     onError: (error) => {
         console.error('Prepare generate referral code error:', error);
     }
