@@ -396,13 +396,24 @@ export default function Home() {
           <div className="space-y-6">git 
              <div>Connected!</div>
 
-  {/* テスト用の最小限のコード */}
-  {isReady && !isConnecting && address && (
+ {/* 状態表示を追加したテストコード */}
+ <div className="bg-white p-4 rounded">
+    <p>State Debug:</p>
+    <ul>
+      <li>isConnecting: {isConnecting ? 'true' : 'false'}</li>
+      <li>isDisconnected: {isDisconnected ? 'true' : 'false'}</li>
+      <li>isReady: {isReady ? 'true' : 'false'}</li>
+    </ul>
+  </div>
+
+  {/* 実際のテスト */}
+  {!isConnecting && !isDisconnected && (
     <div className="bg-white p-4 rounded">
       <p>Test Display</p>
       <p>Deposit Amount: {userInfo ? formatUnits(userInfo.depositAmount, 6) : '0'} USDC</p>
     </div>
   )}
+
              
           {/* Staking Card */}{/*
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
