@@ -48,62 +48,69 @@ const LandingContent: React.FC<{
    {/* 以下のセクションは白背景に戻す */}
    <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
-        {/* Hero Section */}
+{/* Hero Section */}
 <div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
   <h1 className="text-4xl font-bold mb-6">
-    Building the Future of Finance on BASE Network
+    The Future of Finance on Coinbase's BASE Network
   </h1>
   <p className="text-xl mb-8 text-blue-100">
-    A Sustainable Foundation for Digital Finance, Powered by Coinbase
+    Join the Next Evolution in Digital Asset Infrastructure
   </p>
   <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      Institutional Security
+      Pure DeFi Architecture
     </div>
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      Community Governed
+      Institutional Framework
     </div>
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      Future-Proof Infrastructure
+      Community Governance
     </div>
   </div>
 </div>
 
-{/* Main Content Section */}
 <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
-  {/* USDC Section */}
+  {/* Evolution Section */}
   <div className="mb-12">
-    <h2 className="text-2xl font-bold mb-4">The Foundation of Digital Finance</h2>
+    <h2 className="text-2xl font-bold mb-4">The Evolution of Digital Finance</h2>
     <p className="mb-6">
-      USDC represents the evolution of digital currency, combining the stability of US dollars with 
-      the efficiency of blockchain technology. Each USDC is backed one-to-one by US dollar reserves 
-      and regularly audited under Coinbase's institutional framework, providing a secure foundation 
-      for the future of finance.
+      BASEUSDC.COM represents the culmination of blockchain evolution - a serverless 
+      architecture built on Coinbase's institutional-grade infrastructure, managing digital 
+      assets with unprecedented efficiency and security. This fusion of USDC stability and BASE 
+      Network efficiency creates a platform that fundamentally transforms digital finance.
     </p>
   </div>
 
-  {/* BASE Network Section */}
+  {/* Infrastructure Section */}
   <div className="mb-12">
-    <h2 className="text-2xl font-bold mb-4">The Power of BASE Network</h2>
+    <h2 className="text-2xl font-bold mb-4">Next-Generation Financial Infrastructure</h2>
     <p className="mb-6">
-      Built on Coinbase's BASE Network, our platform inherits the robust security model that 
-      protects billions in assets while delivering unprecedented efficiency. This infrastructure 
-      enables sustainable growth and widespread adoption of digital finance services.
+      BASEUSDC.COM integrates breakthrough technologies into a comprehensive platform. 
+      Built on Coinbase's trusted infrastructure, it enables fully automated processing 
+      through smart contracts, eliminating traditional banking delays while maintaining 
+      unprecedented security standards.
     </p>
   </div>
 
-  {/* Governance Section - New */}
-  <div className="mb-12">
-    <h2 className="text-2xl font-bold mb-4">Community Governance</h2>
-    <p className="mb-6">
-      As our platform matures, governance tokens will be distributed to early participants, 
-      enabling direct involvement in the platform's future development. This isn't just about 
-      early access - it's an opportunity to become a key stakeholder in shaping the next 
-      generation of financial infrastructure.
+  {/* Governance Section - Dark Theme */}
+  <div className="bg-[#1a237e] text-white p-8 rounded-lg mb-12">
+    <h2 className="text-2xl font-bold mb-4">Early Participation Benefits</h2>
+    <p className="mb-4">
+      As the platform grows towards significant scale, governance tokens will be distributed 
+      to give participants direct influence over the platform's development. The distribution 
+      model is designed to recognize and reward early adoption.
     </p>
+    <div className="bg-opacity-10 bg-white p-6 rounded-lg">
+      <p className="text-lg font-medium">
+        The earlier and more actively you participate in BASEUSDC.COM, the larger your 
+        future allocation of governance tokens will be. This isn't just early access - 
+        it's an opportunity to become a key stakeholder in the next evolution of 
+        financial infrastructure.
+      </p>
+    </div>
   </div>
 
   {/* Steps Section - Enhanced */}
