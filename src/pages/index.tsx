@@ -160,6 +160,73 @@ const LandingContent: React.FC<{
       </div>
     </div>
   </div>
+
+  {/* Previous sections remain the same */}
+
+{/* Content Creators Section */}
+<div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
+  <h2 className="text-2xl font-bold mb-6">Featured Content Creators</h2>
+  <div className="bg-gray-50 p-6 rounded-lg">
+    <p className="text-lg mb-4">Are you a content creator? Create a video or article about BASEUSDC.COM and get featured here!</p>
+    
+    <h3 className="text-xl font-bold mb-3">Benefits of being featured:</h3>
+    <div className="space-y-2 mb-6">
+      <p>• Direct exposure to our growing user base</p>
+      <p>• Permanent backlink to your content</p>
+      <p>• Special referral tracking</p>
+      <p>• Priority support and early access to new features</p>
+      <p>• Opportunity to be highlighted as a trusted community voice</p>
+    </div>
+
+    <p className="text-gray-700">
+      Contact us through our form to get your content featured. Quality content that helps users understand our platform will be prioritized for featuring.
+    </p>
+  </div>
+</div>
+
+{/* Referral Program Information */}
+<div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
+  <h2 className="text-2xl font-bold mb-6">Referral Program</h2>
+  <div className="bg-gray-50 p-6 rounded-lg">
+    <p className="text-lg mb-4">
+      Share BASEUSDC.COM with your community and earn additional rewards. Our referral program is designed to reward both referrers and their referrals, creating a win-win situation for everyone involved.
+    </p>
+    <div className="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 className="text-xl font-bold mb-3">For Referrers</h3>
+        <p>Earn additional rewards on your referrals' stakes while helping grow the community.</p>
+      </div>
+      <div>
+        <h3 className="text-xl font-bold mb-3">For Those Referred</h3>
+        <p>Get bonus rewards when joining through a referral code, boosting your earning potential.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* Contact Section */}
+<div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
+  <h2 className="text-2xl font-bold mb-6">Need Support?</h2>
+  <div className="text-center">
+    <p className="text-lg mb-4">Our team is here to help you with any questions or concerns.</p>
+    <a 
+      href="mailto:support@baseusdc.com" 
+      className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+    >
+      Contact Support: support@baseusdc.com
+    </a>
+  </div>
+</div>
+
+{/* Footer - using the existing styling */}
+<div className="footer-links text-center mt-8 pb-8">
+  <a 
+    href="mailto:support@baseusdc.com" 
+    className="text-blue-600 hover:text-blue-800 transition-colors"
+  >
+    Contact us: support@baseusdc.com
+  </a>
+</div>
 </div>
       </div>
       </div>
