@@ -491,31 +491,36 @@ export default function Home() {
 
 
 
-          {/* Rewards Card */}{/* 
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 className="text-xl font-semibold mb-4">Available Rewards</h2>
-            {userInfo?.pendingRewards > 0n ? (
-              <div className="space-y-4">
-                <div className="p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-2">Rewards Available</h3>
-                  <p className="text-2xl font-bold text-green-600">
-                    {formatUnits(userInfo.pendingRewards, 6)} USDC
-                  </p>
-                </div>
-                <button
-                  onClick={handleClaimRewards}
-                  disabled={isProcessing}
-                  className="w-full bg-green-600 text-white rounded-lg py-4 font-medium hover:bg-green-700 disabled:bg-green-400 transition-colors"
-                >
-                  {isProcessing ? 'Processing...' : 'Claim Rewards'}
-                </button>
-              </div>
-            ) : (
-              <div className="py-8 text-center text-gray-500">
-                No rewards available to claim
-              </div>
-            )}
+     {/* Rewards Card */}
+<div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+  <h2 className="text-xl font-semibold mb-4">Available Rewards</h2>
+  {isReady && userInfo && (
+    <div className="space-y-4">
+      {userInfo?.pendingRewards && userInfo.pendingRewards > 0n ? (
+        <>
+          <div className="p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-lg">
+            <h3 className="text-lg font-semibold mb-2">Rewards Available</h3>
+            <p className="text-2xl font-bold text-green-600">
+              {formatUnits(userInfo.pendingRewards, 6)} USDC
+            </p>
           </div>
+          <button
+            onClick={handleClaimRewards}
+            disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
+            className="w-full bg-green-600 text-white rounded-lg py-4 font-medium hover:bg-green-700 disabled:bg-green-400 transition-colors"
+          >
+            {isProcessing ? 'Processing...' : 'Claim Rewards'}
+          </button>
+        </>
+      ) : (
+        <div className="py-8 text-center text-gray-500">
+          No rewards available to claim
+        </div>
+      )}
+    </div>
+  )}
+</div>
+
 
                    {/* Referral Program Card */}{/* 
                    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
