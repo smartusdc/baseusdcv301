@@ -191,19 +191,27 @@ export default function Home() {
   });
   
   useEffect(() => {
-    console.log('State Update:', {
-      address,
+    console.log('=== State Transition Log ===');
+    console.log('Timestamp:', new Date().toISOString());
+    console.log('Connection Status:', {
       isConnecting,
       isDisconnected,
-      isReady,
-      chain: chain?.id,
-      userInfo: userInfo ? 'exists' : 'undefined',
-      currentAPR: currentAPR?.toString(),
-      referrerRate: referrerRate?.toString(),
-      referredRate: referredRate?.toString(),
-      timestamp: new Date().toISOString()
+      hasAddress: !!address,
+      address: address || 'none'
     });
+    console.log('Ready Status:', {
+      isReady,
+      chainId: chain?.id || 'not connected'
+    });
+    console.log('Contract Read Status:', {
+      hasUserInfo: userInfo ? true : false,
+      currentAPR: currentAPR?.toString() || 'not loaded',
+      referrerRate: referrerRate?.toString() || 'not loaded',
+      referredRate: referredRate?.toString() || 'not loaded'
+    });
+    console.log('========================');
   }, [address, isConnecting, isDisconnected, isReady, chain, userInfo, currentAPR, referrerRate, referredRate]);
+  
 
 
   const { data: allowance } = useContractRead({
@@ -387,8 +395,8 @@ export default function Home() {
 ) : (
           <div className="space-y-6">git 
              <div>Connected!</div>
-             {isReady && address && (  // この条件を追加
-          {/* Staking Card */}
+             
+          {/* Staking Card */}{/*
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
             <div className="space-y-4">
