@@ -328,6 +328,16 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
     }
 });
 
+// デバッグログを追加
+useEffect(() => {
+  console.log('Generate Referral Code Config Status:', {
+      hasConfig: !!generateReferralCodeConfig,
+      address,
+      isProcessing,
+      existingReferralCode: existingReferralCode?.toString()
+  });
+}, [generateReferralCodeConfig, address, isProcessing, existingReferralCode]);
+
   const { writeAsync: generateReferralCode } = useContractWrite(generateReferralCodeConfig);
 
   const { config: processReferralConfig } = usePrepareContractWrite({
@@ -427,28 +437,36 @@ const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
         return;
     }
     
+    if (!generateReferralCode) {
+        console.error('generateReferralCode function is not available');
+        alert('Contract write function is not ready');
+        return;
+    }
+
     try {
         setIsProcessing(true);
-        console.log('Attempting to generate referral code');
+        console.log('Attempting to generate referral code', {
+            config: generateReferralCodeConfig,
+            writeFunction: !!generateReferralCode
+        });
         
-        const tx = await generateReferralCode?.();
-        if (!tx) {
-            console.log('No transaction object returned');
-            throw new Error('Failed to generate referral code - No transaction');
-        }
-        
-        console.log('Transaction sent:', tx);
-        // wait() を削除し、直接次の処理へ
+        const tx = await generateReferralCode();
+        console.log('Transaction response:', tx);
         
         await refetchUserInfo();
         alert('Referral code generated successfully');
     } catch (error: any) {
-        console.error('Generate referral code error:', error);
+        console.error('Generate referral code error:', {
+            error,
+            message: error.message,
+            data: error.data
+        });
         alert(`Failed to generate referral code: ${error.message}`);
     } finally {
         setIsProcessing(false);
     }
 };
+
 
 
 
