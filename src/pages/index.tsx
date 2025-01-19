@@ -247,6 +247,7 @@ export default function Home() {
     address: CONTRACT_ADDRESS,
     abi: stakingABI,
     functionName: 'depositFunds',
+    args: [parseUnits(inputAmount || '0', 6), 0n], // args を追加。referralCode は 0n
     enabled: !!address && !!inputAmount,
   });
   const { writeAsync: stake } = useContractWrite(stakeConfig);
