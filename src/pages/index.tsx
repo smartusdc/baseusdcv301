@@ -396,8 +396,8 @@ export default function Home() {
           <div className="space-y-6">git 
              <div>Connected!</div>
 
-               {/* テスト用の最小限のコード */}
-  {userInfo && (
+  {/* テスト用の最小限のコード */}
+  {isReady && userInfo && (
     <div className="bg-white p-4 rounded">
       <p>Test Display</p>
       <p>Deposit Amount: {formatUnits(userInfo.depositAmount, 6)} USDC</p>
