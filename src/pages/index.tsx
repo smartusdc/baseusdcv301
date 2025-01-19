@@ -371,7 +371,7 @@ export default function Home() {
    {/* Header */}
    <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
   <div className="container mx-auto px-4">
-    <div className="flex justify-between items-center h-16">
+    <div className="flex justify-between items-center h-22">
       <div className="flex items-center">
         <img src="/logo.png" alt="BASEUSDC.COM" className="h-8 w-auto" />
       </div>
@@ -383,7 +383,7 @@ export default function Home() {
 </header>
 
 {/* ヘッダーの高さ分のスペーサー */}
-<div className="h-16"></div>
+<div className="h-22"></div>
 
 
 {/* ここから条件分岐を追加 */}
