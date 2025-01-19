@@ -483,14 +483,14 @@ useEffect(() => {
       }
 
       const stakeTx = await stake?.();
-      if (!stakeTx) throw new Error('Failed to stake');
+      if (!stakeTx) throw new Error('Unable to process your deposit at this time. Please try again.');
       await refetchUserInfo();
       
       setInputAmount('');
-      alert('Staking successful');
+      alert('Your deposit has been successfully processed and confirmed.');
     } catch (error: any) {
       console.error('Staking error:', error);
-      alert(error?.message || 'Failed to stake');
+      alert(error?.message || 'Unable to process your deposit at this time. Please try againe.');
     } finally {
       setIsProcessing(false);
     }
@@ -507,14 +507,14 @@ useEffect(() => {
     try {
       setIsProcessing(true);
       const withdrawTx = await withdraw?.();
-      if (!withdrawTx) throw new Error('Failed to withdraw');
+      if (!withdrawTx) throw new Error('Your withdrawal request could not be completed. Please try again.');
       await refetchUserInfo();
       
       setWithdrawAmount('');
-      alert('Withdrawal successful');
+      alert('Your withdrawal has been successfully processed and confirmed.');
     } catch (error: any) {
       console.error('Withdrawal error:', error);
-      alert(error?.message || 'Failed to withdraw');
+      alert(error?.message || 'Your withdrawal request could not be completed. Please try again.');
     } finally {
       setIsProcessing(false);
     }
@@ -528,12 +528,12 @@ useEffect(() => {
     try {
       setIsProcessing(true);
       const tx = await claimRewards?.();
-      if (!tx) throw new Error('Failed to claim rewards');
+      if (!tx) throw new Error('Your rewards claim could not be processed at this moment. Please try again.');
       await refetchUserInfo();
-      alert('Rewards claimed successfully');
+      alert('Your rewards have been successfully claimed and transferred to your wallet.');
     } catch (error: any) {
       console.error('Claim error:', error);
-      alert(error?.message || 'Failed to claim rewards');
+      alert(error?.message || 'Your rewards claim could not be processed at this moment. Please try again.');
     } finally {
       setIsProcessing(false);
     }
@@ -562,14 +562,14 @@ useEffect(() => {
         console.log('Transaction response:', tx);
         
         await refetchUserInfo();
-        alert('Referral code generated successfully');
+        alert('Your unique referral code has been generated. You can now share it with others.');
     } catch (error: any) {
         console.error('Generate referral code error:', {
             error,
             message: error.message,
             data: error.data
         });
-        alert(`Failed to generate referral code: ${error.message}`);
+        alert(`We could not generate your referral code at this time. Please try again.: ${error.message}`);
     } finally {
         setIsProcessing(false);
     }
@@ -585,10 +585,10 @@ useEffect(() => {
       setIsProcessing(true);
       setProcessReferralCode(parseInt(referralCode));
       const tx = await processReferral?.();
-      if (!tx) throw new Error('Failed to process referral');
+      if (!tx) throw new Error('Your referral code could not be applied. Please verify the code and try again.');
       await refetchUserInfo();
       setReferralCode('');
-      alert('Referral code applied successfully');
+      alert('Your referral code has been successfully verified and applied to your account.');
     } catch (error: any) {
       console.error('Apply referral error:', error);
       alert(error?.message || 'Failed to apply referral code');
@@ -637,7 +637,7 @@ useEffect(() => {
 
         {/* Staking Card */}
 <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-  <h2 className="text-xl font-semibold mb-6">Stake USDC</h2>
+  <h2 className="text-xl font-semibold mb-6">Deposit USDC</h2>
   <div className="space-y-4">
     <div>
       <label className="block text-sm font-medium text-gray-700 mb-1">
