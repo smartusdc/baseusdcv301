@@ -238,6 +238,7 @@ export default function Home() {
     address: CONTRACTS.USDC.address,
     abi: CONTRACTS.USDC.abi,
     functionName: 'approve',
+    args: [CONTRACT_ADDRESS, parseUnits(inputAmount || '0', 6)], // この args の1行を追加
     enabled: !!address && !!inputAmount,
   });
   const { writeAsync: approveUsdc } = useContractWrite(approveConfig);
