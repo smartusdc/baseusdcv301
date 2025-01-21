@@ -490,7 +490,7 @@ useEffect(() => {
       alert('Your deposit has been successfully processed and confirmed.');
     } catch (error: any) {
       console.error('Staking error:', error);
-      alert(error?.message || 'Unable to process your deposit at this time. Please try againe.');
+      alert(error?.message || 'Unable to process your deposit at this time. Please try again.');
     } finally {
       setIsProcessing(false);
     }
