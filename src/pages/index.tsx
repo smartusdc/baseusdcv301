@@ -848,6 +848,71 @@ useEffect(() => {
     </div>
   )}
 </div>
+{/* Support Card */}
+<div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+  <h2 className="text-xl font-semibold mb-4">Need Support?</h2>
+  
+  {/* Common Issues Section */}
+  <div className="mb-6">
+    <h3 className="text-lg font-medium mb-3">Common Issues Troubleshooting</h3>
+    <div className="space-y-2">
+      <div className="flex items-center text-gray-700">
+        <span className="text-green-500 mr-2">✓</span>
+        <p>Ensure you've completed the wallet signature request</p>
+      </div>
+      <div className="flex items-center text-gray-700">
+        <span className="text-green-500 mr-2">✓</span>
+        <p>Verify you're connected to the BASE Network</p>
+      </div>
+      <div className="flex items-center text-gray-700">
+        <span className="text-green-500 mr-2">✓</span>
+        <p>Check your internet connection</p>
+      </div>
+      <div className="flex items-center text-gray-700">
+        <span className="text-green-500 mr-2">✓</span>
+        <p>Wait 5 minutes and refresh your wallet if transactions seem stuck</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Browser & Wallet Compatibility */}
+  <div className="mb-6">
+    <h3 className="text-lg font-medium mb-3">Browser & Wallet Compatibility</h3>
+    <div className="grid md:grid-cols-2 gap-4">
+      <div>
+        <p className="text-sm font-medium text-gray-600 mb-2">Supported Browsers:</p>
+        <ul className="space-y-1 text-gray-700">
+          <li>• Chrome</li>
+          <li>• Safari</li>
+          <li>• Firefox</li>
+          <li>• Opera</li>
+        </ul>
+      </div>
+      <div>
+        <p className="text-sm font-medium text-gray-600 mb-2">Supported Wallets:</p>
+        <ul className="space-y-1 text-gray-700">
+          <li>• MetaMask</li>
+          <li>• Coinbase Wallet</li>
+          <li>• Ledger</li>
+          <li>• Trust Wallet</li>
+          <li>• Rainbow</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {/* Contact Support */}
+  <div className="text-center">
+    <p className="text-gray-600 mb-4">Still having issues? Our support team is ready to help.</p>
+    <a 
+      href="mailto:support@baseusdc.com"
+      className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+    >
+      Contact Support
+    </a>
+  </div>
+</div>
+
 
           </div>
       )}
