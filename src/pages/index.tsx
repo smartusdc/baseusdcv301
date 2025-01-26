@@ -279,8 +279,9 @@ export default function Home() {
     functionName: 'getUserInfo',  // 'users' から 'getUserInfo' に変更
     args: [address ?? '0x0000000000000000000000000000000000000000'],
     enabled: !!address,
-    watch: true,
-    cacheTime: 0,
+    watch: false,        // 変更点1
+    cacheTime: 30000,    // 変更点2
+    staleTime: 10000,    // 変更点3
     onSuccess: (data) => {
       console.log('User Info Updated:', {
           depositAmount: {
