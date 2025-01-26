@@ -36,16 +36,16 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>BASEUSDC.COM - The Future of Finance on Coinbase's BASE Network</title>
-        <meta name="description" content="BASEUSDC.COM - The next evolution in digital finance on Coinbase's BASE Network. Join a revolutionary platform combining institutional-grade security with breakthrough blockchain technology." />
+        <title>SMARTUSDC.COM - The Future of Finance on Coinbase's BASE Network</title>
+        <meta name="description" content="SMARTUSDC.COM - The next evolution in digital finance on Coinbase's BASE Network. Join a revolutionary platform combining institutional-grade security with breakthrough blockchain technology." />
         <meta name="keywords" content="BASE Network, Coinbase, digital finance, institutional DeFi, blockchain innovation, USDC infrastructure, secure staking, community governance" />
-        <meta property="og:title" content="BASEUSDC.COM - The Future of Finance on Coinbase's BASE Network" />
+        <meta property="og:title" content="SMARTUSDC.COM - The Future of Finance on Coinbase's BASE Network" />
         <meta property="og:description" content="Experience the next generation of digital asset infrastructure. Built on Coinbase's BASE Network with institutional-grade security and revolutionary efficiency." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://baseusdc.com" />
-        <meta property="og:site_name" content="BASEUSDC.COM" />
+        <meta property="og:url" content="https://smartusdc.com" />
+        <meta property="og:site_name" content="SMARTUSDC.COM" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="BASEUSDC.COM - The Future of Finance on BASE Network" />
+        <meta name="twitter:title" content="SMARTUSDC.COM - The Future of Finance on BASE Network" />
         <meta name="twitter:description" content="Join the next evolution in digital finance. Powered by Coinbase's revolutionary BASE Network with institutional-grade security." />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
