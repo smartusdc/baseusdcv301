@@ -335,45 +335,32 @@ export default function Home() {
 
   
   useEffect(() => {
-    console.log('=== State Transition Log ===');
-    console.log('Timestamp:', new Date().toISOString());
-    console.log('Connection Status:', {
-      isConnecting,
-      isDisconnected,
-      hasAddress: !!address,
-      address: address || 'none'
-    });
-    console.log('Ready Status:', {
-      isReady,
-      chainId: chain?.id || 'not connected'
-    });
-    console.log('Contract Read Status:', {
-      hasUserInfo: userInfo ? true : false,
-      currentAPR: currentAPR?.toString() || 'not loaded',
-      referrerRate: referrerRate?.toString() || 'not loaded',
-      referredRate: referredRate?.toString() || 'not loaded'
-    });
-    console.log('========================');
-  }, [address, isConnecting, isDisconnected, isReady, chain, userInfo, currentAPR, referrerRate, referredRate]);
-  
-  useEffect(() => {
-    console.log('Current userInfo:', userInfo);
-  }, [userInfo]);
-
-  useEffect(() => {
-    console.log('Referral Code Status:', {
-      existingReferralCode: existingReferralCode?.toString(),
-      userInfoReferral: userInfo?.[3]?.toString(),
-      isProcessing,
-      address
-    });
-  }, [existingReferralCode, userInfo, isProcessing, address]);
+    if (process.env.NODE_ENV === 'development') {
+        console.log('Debug Info:', {
+            timestamp: new Date().toISOString(),
+            connection: {
+                address,
+                isConnecting,
+                isDisconnected
+            },
+            userInfo: userInfo ? {
+                stake: userInfo[0] ? formatUnits(userInfo[0], 6) : '0',
+                rewards: userInfo[1] ? formatUnits(userInfo[1], 6) : '0'
+            } : null,
+            referral: {
+                code: existingReferralCode?.toString(),
+                processing: isProcessing
+            }
+        });
+    }
+}, [address, isConnecting, isDisconnected, userInfo, existingReferralCode, isProcessing]);
 
 
   const { data: allowance } = useContractRead({
     address: USDC_ADDRESS,
     abi: usdcABI,
     functionName: 'allowance',
+    
     args: address ? [address, CONTRACT_ADDRESS] : undefined,
     enabled: !!address,
   });
