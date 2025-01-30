@@ -22,27 +22,18 @@ const LandingContent: React.FC<{
   return (
     <div className="container mx-auto px-4">
       <div className="mb-12">
-  <div className="bg-gradient-to-br from-base-50 to-white p-8 rounded-2xl shadow-lg border border-base-100">
-    <div className="text-center mb-8">
-      <h2 className="text-xl font-bold text-base-900 mb-2">Current APR</h2>
-      <div className="flex items-baseline justify-center">
-        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-base-600 to-base-800 bg-clip-text text-transparent">
-          {formatAPR(currentAPR)}
-        </span>
-        <span className="text-4xl md:text-5xl font-bold text-base-600">%</span>
-      </div>
+      <div className="bg-gradient-to-br from-base-50 to-white p-8 rounded-2xl shadow-lg border border-base-100 mb-12">
+  <div className="text-center mb-8">
+    <h2 className="text-xl font-bold text-base-900 mb-2">Current Launch Campaign APR</h2>
+    <div className="flex items-baseline justify-center">
+      <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-base-600 to-base-800 bg-clip-text text-transparent">
+        {formatAPR(currentAPR)}
+      </span>
+      <span className="text-4xl md:text-5xl font-bold text-base-600">%</span>
     </div>
-    <div className="grid md:grid-cols-2 gap-4">
-      <div className="stats-card">
-        <h3 className="text-base font-medium text-gray-600 mb-1">Referrer Reward</h3>
-        <p className="text-2xl font-bold text-base-600">{formatAPR(referrerRate)}%</p>
-      </div>
-      <div className="stats-card">
-        <h3 className="text-base font-medium text-gray-600 mb-1">Referred Reward</h3>
-        <p className="text-2xl font-bold text-base-600">{formatAPR(referredRate)}%</p>
-      </div>
-    </div>
+    <p className="text-gray-600 mt-4">Limited time offer during launch phase</p>
   </div>
+</div>
 </div>
       {/* 既存の残りのLandingContentコードはそのまま */}
    {/* 以下のセクションは白背景に戻す */}
@@ -73,6 +64,36 @@ const LandingContent: React.FC<{
 </div>
 
 <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
+
+// "The Evolution of Digital Finance" の section の前に以下を追加
+<div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
+  <h2 className="text-2xl font-bold mb-6">Security & Transparency</h2>
+  <div className="bg-gray-50 p-6 rounded-lg">
+    <div className="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 className="text-xl font-bold mb-3">Security Features</h3>
+        <ul className="space-y-2">
+          <li>• Smart contracts verified and audited by Blockaid Security</li>
+          <li>• Built on Coinbase's BASE Network infrastructure</li>
+          <li>• Real-time transaction monitoring</li>
+          <li>• Fully transparent code on BaseScan</li>
+        </ul>
+      </div>
+      <div>
+        <h3 className="text-xl font-bold mb-3">Verified Contracts</h3>
+        <p className="mb-4">View our smart contracts on BaseScan:</p>
+        <a 
+          href="https://basescan.org/address/0x2bd38bd63d66b360de91e2f8caee48aa0b159a00#code"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 break-all"
+        >
+          Contract Address
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
   {/* Evolution Section */}
   <div className="mb-12">
     <h2 className="text-2xl font-bold mb-4">The Evolution of Digital Finance</h2>
@@ -113,29 +134,22 @@ const LandingContent: React.FC<{
     </div>
   </div>
 
-  {/* Steps Section - Enhanced */}
-  <div className="grid md:grid-cols-4 gap-6 mb-12">
-    <div className="bg-white p-6 rounded-lg shadow">
-      <h3 className="text-xl font-bold mb-3">Start with Coinbase</h3>
-      <p>Begin your journey with a trusted platform. Create a Coinbase account to access USDC 
-        with full regulatory compliance and security.</p>
-    </div>
-    <div className="bg-white p-6 rounded-lg shadow">
-      <h3 className="text-xl font-bold mb-3">Setup Your Wallet</h3>
-      <p>Connect your preferred wallet through WalletConnect. We support MetaMask, Coinbase Wallet, 
-        and other major wallets.</p>
-    </div>
-    <div className="bg-white p-6 rounded-lg shadow">
-      <h3 className="text-xl font-bold mb-3">Join BASE Network</h3>
-      <p>Experience the efficiency of Coinbase's BASE Network with minimal fees and 
-        maximum security.</p>
-    </div>
-    <div className="bg-white p-6 rounded-lg shadow">
-      <h3 className="text-xl font-bold mb-3">Participate & Earn</h3>
-      <p>Start with any amount from $1 USDC. Early participants gain opportunities for 
-        future governance rights.</p>
-    </div>
+  // "Steps Section - Enhanced" の部分を以下に置き換え
+<div className="grid md:grid-cols-3 gap-6 mb-12">
+  <div className="bg-white p-6 rounded-lg shadow">
+    <h3 className="text-xl font-bold mb-3">1. Verify</h3>
+    <p>Start with as little as $1 USDC to verify the platform's functionality and security.</p>
   </div>
+  <div className="bg-white p-6 rounded-lg shadow">
+    <h3 className="text-xl font-bold mb-3">2. Experience</h3>
+    <p>Experience the high APR and instant withdrawals with no lock-up period.</p>
+  </div>
+  <div className="bg-white p-6 rounded-lg shadow">
+    <h3 className="text-xl font-bold mb-3">3. Earn More</h3>
+    <p>Generate your referral code to earn additional rewards and participate in governance.</p>
+  </div>
+</div>
+
 
   {/* Enhanced FAQ Section */}
   <div className="mb-12">
