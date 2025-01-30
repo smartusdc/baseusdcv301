@@ -22,19 +22,28 @@ const LandingContent: React.FC<{
   return (
     <div className="container mx-auto px-4">
       <div className="mb-12">
-      <div className="bg-gradient-to-br from-base-50 to-white p-8 rounded-2xl shadow-lg border border-base-100 mb-12">
-  <div className="text-center mb-8">
-    <h2 className="text-xl font-bold text-base-900 mb-2">Current Launch Campaign APR</h2>
-    <div className="flex items-baseline justify-center">
-      <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-base-600 to-base-800 bg-clip-text text-transparent">
-        {formatAPR(currentAPR)}
-      </span>
-      <span className="text-4xl md:text-5xl font-bold text-base-600">%</span>
-    </div>
-    <p className="text-gray-600 mt-4">Limited time offer during launch phase</p>
-  </div>
-</div>
-</div>
+        <div className="bg-gradient-to-br from-base-50 to-white p-8 rounded-2xl shadow-lg border border-base-100">
+          <div className="text-center mb-8">
+            <h2 className="text-xl font-bold text-base-900 mb-2">Current APR</h2>
+            <div className="flex items-baseline justify-center">
+              <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-base-600 to-base-800 bg-clip-text text-transparent">
+                {formatAPR(currentAPR)}
+              </span>
+              <span className="text-4xl md:text-5xl font-bold text-base-600">%</span>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="stats-card">
+              <h3 className="text-base font-medium text-gray-600 mb-1">Referrer Reward</h3>
+              <p className="text-2xl font-bold text-base-600">{formatAPR(referrerRate)}%</p>
+            </div>
+            <div className="stats-card">
+              <h3 className="text-base font-medium text-gray-600 mb-1">Referred Reward</h3>
+              <p className="text-2xl font-bold text-base-600">{formatAPR(referredRate)}%</p>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* 既存の残りのLandingContentコードはそのまま */}
    {/* 以下のセクションは白背景に戻す */}
    <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
@@ -65,7 +74,7 @@ const LandingContent: React.FC<{
 
 <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
-// "The Evolution of Digital Finance" の section の前に以下を追加
+
 <div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
   <h2 className="text-2xl font-bold mb-6">Security & Transparency</h2>
   <div className="bg-gray-50 p-6 rounded-lg">
@@ -134,7 +143,7 @@ const LandingContent: React.FC<{
     </div>
   </div>
 
-  // "Steps Section - Enhanced" の部分を以下に置き換え
+
 <div className="grid md:grid-cols-3 gap-6 mb-12">
   <div className="bg-white p-6 rounded-lg shadow">
     <h3 className="text-xl font-bold mb-3">1. Verify</h3>
