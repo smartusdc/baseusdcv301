@@ -457,7 +457,7 @@ useEffect(() => {
   const handleStake = async () => {
     if (!address || isProcessing) return;
     if (!inputAmount || parseFloat(inputAmount) < parseFloat(MIN_DEPOSIT)) {
-      alert(`Minimum stake amount is ${MIN_DEPOSIT} USDC`);
+      alert(`Minimum Deposit amount is ${MIN_DEPOSIT} USDC`);
       return;
     }
 
@@ -477,7 +477,7 @@ useEffect(() => {
       setInputAmount('');
       alert('Your deposit has been successfully processed and confirmed.');
     } catch (error: any) {
-      console.error('Staking error:', error);
+      console.error('Depositing error:', error);
       alert(error?.message || 'Unable to process your deposit at this time. Please try again.');
     } finally {
       setIsProcessing(false);
@@ -651,7 +651,7 @@ useEffect(() => {
       <div className="mt-6 pt-6 border-t border-gray-100">
         <div className="grid grid-cols-2 gap-4">
           <div className="p-4 bg-gray-50 rounded-lg">
-            <p className="text-sm text-gray-600 mb-1">Your Stake</p>
+            <p className="text-sm text-gray-600 mb-1">Your Deposit</p>
             <p className="text-lg font-semibold">
   {userInfo?.[0] ? formatUnits(userInfo[0], 6) : '0'} USDC
 </p>
@@ -672,7 +672,7 @@ useEffect(() => {
   disabled={isProcessing || !address || (chain?.id !== BASE_CHAIN_ID)}
   className="w-full bg-blue-600 text-white rounded-lg py-4 font-medium hover:bg-blue-700 disabled:bg-blue-400 transition-colors"
 >
-  {isProcessing ? 'Processing...' : 'Stake USDC'}
+  {isProcessing ? 'Processing...' : 'Deposit USDC'}
 </button>
 
 {/* Withdraw Card */}
