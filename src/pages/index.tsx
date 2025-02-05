@@ -1,4 +1,4 @@
-// src/pages/index.tsx - Part 1: Core Logic and State Management check
+// src/pages/index.tsx - Part 1: Core Logic and State Management checK2
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useAccount, useContractRead, useNetwork, useSwitchNetwork, usePrepareContractWrite, useContractWrite } from 'wagmi';
@@ -51,23 +51,27 @@ const LandingContent: React.FC<{
 {/* Hero Section */}
 <div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
   <h1 className="text-4xl font-bold mb-6">
-    The Future of Finance on Coinbase's BASE Network
+  Secure DeFi Infrastructure for the Future of Finance
   </h1>
   <p className="text-xl mb-8 text-blue-100">
-    Join the Next Evolution in Digital Asset Infrastructure
+  Enterprise-Grade Security
   </p>
   <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      Pure DeFi Architecture
+      - Independent security audits by Blockaid
     </div>
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      Institutional Framework
+      - Real-time transaction monitoring
     </div>
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      Community Governance
+      - Multi-signature protocol governance
+    </div>
+    <div className="flex items-center">
+      <span className="text-blue-300 mr-2">•</span>
+      - Automated risk management systems
     </div>
   </div>
 </div>
