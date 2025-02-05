@@ -36,17 +36,17 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>SMARTUSDC.COM - The Future of Finance on Coinbase's BASE Network</title>
-        <meta name="description" content="SMARTUSDC.COM - The next evolution in digital finance on Coinbase's BASE Network. Join a revolutionary platform combining institutional-grade security with breakthrough blockchain technology." />
+        <title>mera.finance - The Future of Finance </title>
+        <meta name="description" content="mera.finance - The next evolution in digital finance. Join a revolutionary platform combining institutional-grade security with breakthrough blockchain technology." />
         <meta name="keywords" content="BASE Network, Coinbase, digital finance, institutional DeFi, blockchain innovation, USDC infrastructure, secure staking, community governance" />
-        <meta property="og:title" content="SMARTUSDC.COM - The Future of Finance on Coinbase's BASE Network" />
-        <meta property="og:description" content="Experience the next generation of digital asset infrastructure. Built on Coinbase's BASE Network with institutional-grade security and revolutionary efficiency." />
+        <meta property="og:title" content="mera.finance - The Future of Finance on BASE Network" />
+        <meta property="og:description" content="Experience the next generation of digital asset infrastructure. Built onBASE Network with institutional-grade security and revolutionary efficiency." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://smartusdc.com" />
-        <meta property="og:site_name" content="SMARTUSDC.COM" />
+        <meta property="og:url" content="https://mera.finance" />
+        <meta property="og:site_name" content="mera.finance" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SMARTUSDC.COM - The Future of Finance on BASE Network" />
-        <meta name="twitter:description" content="Join the next evolution in digital finance. Powered by Coinbase's revolutionary BASE Network with institutional-grade security." />
+        <meta name="twitter:title" content="mera.finance - The Future of Finance " />
+        <meta name="twitter:description" content="Join the next evolution in digital finance. Powered by  revolutionary  Network with institutional-grade security." />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
         <meta name="theme-color" content="#2196F3" />

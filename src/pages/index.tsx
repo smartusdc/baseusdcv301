@@ -51,7 +51,7 @@ const LandingContent: React.FC<{
 {/* Hero Section */}
 <div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
   <h1 className="text-4xl font-bold mb-6">
-    The Future of Finance on Coinbase's BASE Network
+    The Future of Finance on  BASE Network
   </h1>
   <p className="text-xl mb-8 text-blue-100">
     Join the Next Evolution in Digital Asset Infrastructure
@@ -83,7 +83,7 @@ const LandingContent: React.FC<{
         <h3 className="text-xl font-bold mb-3">Security Features</h3>
         <ul className="space-y-2">
           <li>• Smart contracts verified and audited by Blockaid Security</li>
-          <li>• Built on Coinbase's BASE Network infrastructure</li>
+          <li>• Built on  BASE Network infrastructure</li>
           <li>• Real-time transaction monitoring</li>
           <li>• Fully transparent code on BaseScan</li>
         </ul>
@@ -108,7 +108,7 @@ const LandingContent: React.FC<{
     <h2 className="text-2xl font-bold mb-4">The Evolution of Digital Finance</h2>
     <p className="mb-6">
       SMARTUSDC.COM represents the culmination of blockchain evolution - a serverless 
-      architecture built on Coinbase's institutional-grade infrastructure, managing digital 
+      architecture built on  institutional-grade infrastructure, managing digital 
       assets with unprecedented efficiency and security. This fusion of USDC stability and BASE 
       Network efficiency creates a platform that fundamentally transforms digital finance.
     </p>
@@ -119,7 +119,7 @@ const LandingContent: React.FC<{
     <h2 className="text-2xl font-bold mb-4">Next-Generation Financial Infrastructure</h2>
     <p className="mb-6">
       SMARTUSDC.COM integrates breakthrough technologies into a comprehensive platform. 
-      Built on Coinbase's trusted infrastructure, it enables fully automated processing 
+      Built on  trusted infrastructure, it enables fully automated processing 
       through smart contracts, eliminating traditional banking delays while maintaining 
       unprecedented security standards.
     </p>
@@ -167,7 +167,7 @@ const LandingContent: React.FC<{
       <div className="bg-gray-50 p-6 rounded-lg">
         <h3 className="text-xl font-bold mb-3">How is my security ensured?</h3>
         <p>Your funds are protected by the same security infrastructure that safeguards billions 
-          in assets on Coinbase's networks. All smart contracts are publicly verifiable and 
+          in assets on networks. All smart contracts are publicly verifiable and 
           regularly audited, ensuring maximum transparency and security.</p>
       </div>
       <div className="bg-gray-50 p-6 rounded-lg">
@@ -233,10 +233,10 @@ const LandingContent: React.FC<{
   <div className="text-center">
     <p className="text-lg mb-4">Our team is here to help you with any questions or concerns.</p>
     <a 
-      href="mailto:support@smartusdc.com" 
+      href="mailto:support@mera.finance" 
       className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
     >
-      Contact Support: support@smartusdc.com
+      Contact Support: support@mera.finance
     </a>
   </div>
 </div>
@@ -244,10 +244,10 @@ const LandingContent: React.FC<{
 {/* Footer - using the existing styling */}
 <div className="footer-links text-center mt-8 pb-8">
   <a 
-    href="mailto:support@smartusdc.com" 
+    href="mailto:support@mera.finance" 
     className="text-blue-600 hover:text-blue-800 transition-colors"
   >
-    Contact us: support@smartusdc.com
+    Contact us: support@mera.finance
   </a>
 </div>
 </div>
@@ -916,7 +916,7 @@ useEffect(() => {
   <div className="text-center">
     <p className="text-gray-600 mb-4">Still having issues? Our support team is ready to help.</p>
     <a 
-      href="mailto:support@smartusdc.com"
+      href="mailto:support@mera.finance"
       className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
     >
       Contact Support
