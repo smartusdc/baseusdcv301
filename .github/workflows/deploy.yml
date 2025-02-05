@@ -40,7 +40,7 @@ jobs:
         id: artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './out'
+          path: './.next'
           retention-days: 1
 
   deploy:
@@ -54,4 +54,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
         with:
-          artifact: ${{ needs.build.outputs.artifact_name }}
+          artifact: pages-artifact
