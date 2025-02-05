@@ -30,8 +30,8 @@ jobs:
       
       - run: ls -la out
       
-      # アーティファクトのアップロード方法を変更
-      - uses: actions/upload-pages-artifact@v4  # v4を使用
+      # v3のままにする
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: out
           retention-days: 1
