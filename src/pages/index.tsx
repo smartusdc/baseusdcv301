@@ -1,4 +1,4 @@
-// src/pages/index.tsx - Part 1: Core Logic and State Management checK2
+// src/pages/index.tsx - Part 1: Core Logic and State Management check
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useAccount, useContractRead, useNetwork, useSwitchNetwork, usePrepareContractWrite, useContractWrite } from 'wagmi';
@@ -51,32 +51,30 @@ const LandingContent: React.FC<{
 {/* Hero Section */}
 <div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
   <h1 className="text-4xl font-bold mb-6">
-  Secure DeFi Infrastructure for the Future of Finance
+    The Future of Finance on Coinbase's BASE Network
   </h1>
   <p className="text-xl mb-8 text-blue-100">
-  Enterprise-Grade Security
+    Join the Next Evolution in Digital Asset Infrastructure
   </p>
   <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      - Independent security audits by Blockaid
+      Pure DeFi Architecture
     </div>
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      - Real-time transaction monitoring
+      Institutional Framework
     </div>
     <div className="flex items-center">
       <span className="text-blue-300 mr-2">•</span>
-      - Multi-signature protocol governance
-    </div>
-    <div className="flex items-center">
-      <span className="text-blue-300 mr-2">•</span>
-      - Automated risk management systems
+      Community Governance
     </div>
   </div>
 </div>
 
 <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
+
+
 <div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
   <h2 className="text-2xl font-bold mb-6">Security & Transparency</h2>
   <div className="bg-gray-50 p-6 rounded-lg">
