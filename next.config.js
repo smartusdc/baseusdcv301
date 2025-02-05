@@ -2,8 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   output: 'export',
-  basePath: '/baseusdcv301',
-  assetPrefix: '/baseusdcv301/', // この行を追加
   images: {
     unoptimized: true,
   },
@@ -13,7 +11,6 @@ module.exports = {
       fs: false,
       net: false,
       tls: false,
-      dns: false
     };
     return config;
   },
