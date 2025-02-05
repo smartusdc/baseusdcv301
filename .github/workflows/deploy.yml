@@ -28,10 +28,11 @@ jobs:
         env:
           NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID }}
       
-      - run: ls -la out  # デバッグ用
+      - run: ls -la out
       
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-artifact@v4  # v3 から v4 に変更
         with:
+          name: github-pages
           path: out
 
   deploy:
@@ -41,4 +42,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/download-artifact@v4  # 追加：アーティファクトのダウンロード
+        with:
+          name: github-pages
+          path: .
+      
       - uses: actions/deploy-pages@v3
