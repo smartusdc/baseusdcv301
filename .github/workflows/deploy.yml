@@ -30,10 +30,11 @@ jobs:
       
       - run: ls -la out
       
-      - uses: actions/upload-artifact@v4  # 必ずv4を使用
+      # アーティファクトのアップロード方法を変更
+      - uses: actions/upload-pages-artifact@v4  # v4を使用
         with:
-          name: github-pages
           path: out
+          retention-days: 1
 
   deploy:
     needs: build
@@ -42,9 +43,4 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/download-artifact@v4  # 必ずv4を使用
-        with:
-          name: github-pages
-          path: .
-      
-      - uses: actions/deploy-pages@v4  # もし利用可能であればv4に更新
+      - uses: actions/deploy-pages@v4
