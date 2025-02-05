@@ -16,8 +16,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      artifact_name: ${{ steps.artifact.outputs.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,4 +52,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
         with:
-          artifact: pages-artifact
+          artifact_name: pages-artifact  # ここを修正
