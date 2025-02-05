@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>mera.finance - The Future of Finance </title>
         <meta name="description" content="mera.finance - The next evolution in digital finance. Join a revolutionary platform combining institutional-grade security with breakthrough blockchain technology." />
-        <meta name="keywords" content="BASE Network, Coinbase, digital finance, institutional DeFi, blockchain innovation, USDC infrastructure, secure staking, community governance" />
+        <meta name="keywords" content=" digital finance, institutional DeFi, blockchain innovation, USDC infrastructure, secure staking, community governance" />
         <meta property="og:title" content="mera.finance - The Future of Finance on BASE Network" />
         <meta property="og:description" content="Experience the next generation of digital asset infrastructure. Built onBASE Network with institutional-grade security and revolutionary efficiency." />
         <meta property="og:type" content="website" />
