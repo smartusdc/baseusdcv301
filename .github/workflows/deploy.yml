@@ -39,6 +39,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './.next'
+          name: pages-artifact  # アーティファクト名を明示的に指定
           retention-days: 1
 
   deploy:
@@ -52,4 +53,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
         with:
-          artifact_name: pages-artifact  # ここを修正
+          artifact_name: pages-artifact  # アーティファクト名を指定
