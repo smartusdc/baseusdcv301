@@ -13,7 +13,7 @@ const formatAPR = (value: bigint | undefined): string => {
   return (Number(value) / 100).toString();
 };
 
-// 既存のimport文の後に
+// 既存のimport文の後に..
 const LandingContent: React.FC<{
   currentAPR?: bigint;
   referrerRate?: bigint;
