@@ -107,7 +107,7 @@ const LandingContent: React.FC<{
   <div className="mb-12">
     <h2 className="text-2xl font-bold mb-4">The Evolution of Digital Finance</h2>
     <p className="mb-6">
-      SMARTUSDC.COM represents the culmination of blockchain evolution - a serverless 
+      MERA.FINANCE represents the culmination of blockchain evolution - a serverless 
       architecture built on  institutional-grade infrastructure, managing digital 
       assets with unprecedented efficiency and security. This fusion of USDC stability and BASE 
       Network efficiency creates a platform that fundamentally transforms digital finance.
@@ -118,7 +118,7 @@ const LandingContent: React.FC<{
   <div className="mb-12">
     <h2 className="text-2xl font-bold mb-4">Next-Generation Financial Infrastructure</h2>
     <p className="mb-6">
-      SMARTUSDC.COM integrates breakthrough technologies into a comprehensive platform. 
+      MERA.FINANCE integrates breakthrough technologies into a comprehensive platform. 
       Built on  trusted infrastructure, it enables fully automated processing 
       through smart contracts, eliminating traditional banking delays while maintaining 
       unprecedented security standards.
@@ -135,7 +135,7 @@ const LandingContent: React.FC<{
     </p>
     <div className="bg-opacity-10 bg-white p-6 rounded-lg">
       <p className="text-lg font-medium">
-        The earlier and more actively you participate in SMARTUSDC.COM, the larger your 
+        The earlier and more actively you participate in MERA.FINANCE, the larger your 
         future allocation of governance tokens will be. This isn't just early access - 
         it's an opportunity to become a key stakeholder in the next evolution of 
         financial infrastructure.
@@ -190,7 +190,7 @@ const LandingContent: React.FC<{
 <div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
   <h2 className="text-2xl font-bold mb-6">Featured Content Creators</h2>
   <div className="bg-gray-50 p-6 rounded-lg">
-    <p className="text-lg mb-4">Are you a content creator? Create a video or article about SMARTUSDC.COM and get featured here!</p>
+    <p className="text-lg mb-4">Are you a content creator? Create a video or article about MERA.FINANCE and get featured here!</p>
     
     <h3 className="text-xl font-bold mb-3">Benefits of being featured:</h3>
     <div className="space-y-2 mb-6">
@@ -212,7 +212,7 @@ const LandingContent: React.FC<{
   <h2 className="text-2xl font-bold mb-6">Referral Program</h2>
   <div className="bg-gray-50 p-6 rounded-lg">
     <p className="text-lg mb-4">
-      Share SMARTUSDC.COM with your community and earn additional rewards. Our referral program is designed to reward both referrers and their referrals, creating a win-win situation for everyone involved.
+      Share MERA.FINANCE with your community and earn additional rewards. Our referral program is designed to reward both referrers and their referrals, creating a win-win situation for everyone involved.
     </p>
     <div className="grid md:grid-cols-2 gap-6">
       <div>
@@ -623,7 +623,7 @@ useEffect(() => {
   <div className="container mx-auto px-4">
     <div className="flex justify-between items-center h-22">
       <div className="flex items-center">
-        <img src="/logo.png" alt="SMARTUSDC.COM" className="h-14 w-auto object-contain" />
+        <img src="/logo.png" alt="MERA.FINANCE" className="h-14 w-auto object-contain" />
       </div>
       <div className="ml-auto">
         <ConnectButton />
