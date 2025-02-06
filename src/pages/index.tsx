@@ -189,23 +189,40 @@ const LandingContent: React.FC<{
   </div>
 </div>
 
-  {/* Governance Section - Dark Theme */}
-  <div className="bg-[#1a237e] text-white p-8 rounded-lg mb-12">
-    <h2 className="text-2xl font-bold mb-4">Early Participation Benefits</h2>
-    <p className="mb-4">
-      As the platform grows towards significant scale, governance tokens will be distributed 
-      to give participants direct influence over the platform's development. The distribution 
-      model is designed to recognize and reward early adoption.
-    </p>
-    <div className="bg-opacity-10 bg-white p-6 rounded-lg">
-      <p className="text-lg font-medium">
-        The earlier and more actively you participate in MERA.FINANCE, the larger your 
-        future allocation of governance tokens will be. This isn't just early access - 
-        it's an opportunity to become a key stakeholder in the next evolution of 
-        financial infrastructure.
+{/* Early Adopter Benefits Section */}
+<div className="container mx-auto px-4 my-16">
+  <div className="card bg-gradient-to-br from-blue-700 to-blue-900 text-white">
+    <div className="text-center mb-8">
+      <h2 className="text-2xl font-bold mb-4">Early Adopter Benefits</h2>
+      <p className="text-blue-100 text-lg">
+        Be among the first 1,000 users to maximize your benefits
       </p>
     </div>
+
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-white/10 p-6 rounded-lg backdrop-blur-md">
+        <h3 className="text-xl font-bold mb-3">Priority Access</h3>
+        <p className="text-blue-100">
+          Maximum governance token allocation for early participants
+        </p>
+      </div>
+
+      <div className="bg-white/10 p-6 rounded-lg backdrop-blur-md">
+        <h3 className="text-xl font-bold mb-3">Enhanced Yields</h3>
+        <p className="text-blue-100">
+          Boosted USDC reward rates for early adopters
+        </p>
+      </div>
+
+      <div className="bg-white/10 p-6 rounded-lg backdrop-blur-md">
+        <h3 className="text-xl font-bold mb-3">Voting Power</h3>
+        <p className="text-blue-100">
+          Direct influence over platform development
+        </p>
+      </div>
+    </div>
   </div>
+</div>
 
 
 <div className="grid md:grid-cols-3 gap-6 mb-12">
