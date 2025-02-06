@@ -31,13 +31,13 @@
   
   .card {
     @apply bg-white rounded-2xl shadow-lg border border-gray-100 
-      p-4 md:p-8  /* ここを変更 */
+      p-4 md:p-6  /* p-8から更に縮小 */
       hover:shadow-xl transition-all duration-300;
   }
   
   .stats-card {
     @apply bg-gradient-to-br from-white to-gray-50 
-      p-4 md:p-6  /* ここを変更 */
+      p-3 md:p-5  /* さらに小さく */
       rounded-xl shadow-sm hover:shadow-md transition-all duration-300 
       border border-gray-100;
   }

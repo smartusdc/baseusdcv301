@@ -50,7 +50,7 @@ const LandingContent: React.FC<{
 
 {/* Hero Section */}
 <div className="bg-gradient-to-br from-blue-700 to-blue-900 text-white p-8 rounded-lg shadow-xl mb-12">
-  <div className="container mx-auto">
+
     <div className="text-center space-y-6">
       {/* Main Header */}
       <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -92,7 +92,7 @@ const LandingContent: React.FC<{
             {formatAPR(referrerRate)}% Bonus
           </div>
         </div>
-      </div>
+      
     </div>
   </div>
 </div>
