@@ -35,22 +35,30 @@ const wagmiConfig = createConfig({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <title>mera.finance - The Future of Finance </title>
-        <meta name="description" content="mera.finance - The next evolution in digital finance. Join a revolutionary platform combining institutional-grade security with breakthrough blockchain technology." />
-        <meta name="keywords" content=" digital finance, institutional DeFi, blockchain innovation, USDC infrastructure, secure staking, community governance" />
-        <meta property="og:title" content="mera.finance - The Future of Finance on BASE Network" />
-        <meta property="og:description" content="Experience the next generation of digital asset infrastructure. Built onBASE Network with institutional-grade security and revolutionary efficiency." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mera.finance" />
-        <meta property="og:site_name" content="mera.finance" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="mera.finance - The Future of Finance " />
-        <meta name="twitter:description" content="Join the next evolution in digital finance. Powered by  revolutionary  Network with institutional-grade security." />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-        <meta name="theme-color" content="#2196F3" />
-      </Head>
+   <Head>
+  <title>MERA.finance - Institutional-Grade USDC Yields on BASE</title>
+  
+  {/* Primary Meta Tags */}
+  <meta name="description" content="Earn competitive USDC yields daily on BASE Network. Bank-grade security, instant withdrawals, and community rewards. Start earning institutional-grade returns today." />
+  <meta name="keywords" content="USDC yield, BASE Network, institutional DeFi, secure staking, daily rewards, referral program, blockchain yields, digital asset infrastructure" />
+  
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mera.finance" />
+  <meta property="og:title" content="MERA.finance - Institutional-Grade USDC Yields on BASE" />
+  <meta property="og:description" content="Access institutional-grade USDC yields with daily rewards and bank-level security. Built on BASE Network for maximum efficiency and reliability." />
+  <meta property="og:site_name" content="MERA.finance" />
+  
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MERA.finance - Daily USDC Yields on BASE" />
+  <meta name="twitter:description" content="Earn daily USDC rewards with institutional-grade security. Competitive yields, instant withdrawals, and community bonuses on BASE Network." />
+  
+  {/* Favicon */}
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#1E40AF" /> {/* より濃い青に変更 */}
+</Head>
 
       {/* Google Analytics */}
       <Script
