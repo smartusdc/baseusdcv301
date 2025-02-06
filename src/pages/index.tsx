@@ -46,7 +46,7 @@ const LandingContent: React.FC<{
       </div>
       {/* 既存の残りのLandingContentコードはそのまま */}
    {/* 以下のセクションは白背景に戻す */}
-   <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
+ 
 
 {/* Hero Section */}
 <div className="bg-gradient-to-br from-blue-700 to-blue-900 text-white p-8 rounded-lg shadow-xl mb-12">
@@ -345,7 +345,6 @@ const LandingContent: React.FC<{
   >
     Contact us: support@mera.finance
   </a>
-</div>
 </div>
       </div>
       </div>
