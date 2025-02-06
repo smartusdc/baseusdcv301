@@ -190,35 +190,38 @@ const LandingContent: React.FC<{
 </div>
 
 {/* Early Adopter Benefits Section */}
-<div className="container mx-auto px-4 my-16">
-  <div className="card bg-gradient-to-br from-blue-700 to-blue-900 text-white">
-    <div className="text-center mb-8">
-      <h2 className="text-2xl font-bold mb-4">Early Adopter Benefits</h2>
-      <p className="text-blue-100 text-lg">
+<div className="container mx-auto px-4 my-8 md:my-16">
+  <div className="card bg-gradient-to-br from-blue-700 to-blue-900 text-white p-6 md:p-8">
+    <div className="text-center mb-6 md:mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold mb-3">Early Adopter Benefits</h2>
+      <p className="text-blue-100 text-base md:text-lg">
         Be among the first 1,000 users to maximize your benefits
       </p>
     </div>
 
-    <div className="grid md:grid-cols-3 gap-6">
-      <div className="bg-white/10 p-6 rounded-lg backdrop-blur-md">
-        <h3 className="text-xl font-bold mb-3">Priority Access</h3>
-        <p className="text-blue-100">
-          Maximum governance token allocation for early participants
-        </p>
-      </div>
+    <div className="grid gap-4 md:gap-6">
+      {/* モバイルでは1カラム、タブレット以上で3カラム */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="bg-white/10 p-5 md:p-6 rounded-lg backdrop-blur-md">
+          <h3 className="text-lg md:text-xl font-bold mb-2">Priority Access</h3>
+          <p className="text-blue-100 text-sm md:text-base">
+            Maximum governance token allocation for early participants
+          </p>
+        </div>
 
-      <div className="bg-white/10 p-6 rounded-lg backdrop-blur-md">
-        <h3 className="text-xl font-bold mb-3">Enhanced Yields</h3>
-        <p className="text-blue-100">
-          Boosted USDC reward rates for early adopters
-        </p>
-      </div>
+        <div className="bg-white/10 p-5 md:p-6 rounded-lg backdrop-blur-md">
+          <h3 className="text-lg md:text-xl font-bold mb-2">Enhanced Yields</h3>
+          <p className="text-blue-100 text-sm md:text-base">
+            Boosted USDC reward rates for early adopters
+          </p>
+        </div>
 
-      <div className="bg-white/10 p-6 rounded-lg backdrop-blur-md">
-        <h3 className="text-xl font-bold mb-3">Voting Power</h3>
-        <p className="text-blue-100">
-          Direct influence over platform development
-        </p>
+        <div className="bg-white/10 p-5 md:p-6 rounded-lg backdrop-blur-md">
+          <h3 className="text-lg md:text-xl font-bold mb-2">Voting Power</h3>
+          <p className="text-blue-100 text-sm md:text-base">
+            Direct influence over platform development
+          </p>
+        </div>
       </div>
     </div>
   </div>
