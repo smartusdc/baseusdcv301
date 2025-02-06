@@ -49,25 +49,34 @@ const LandingContent: React.FC<{
    <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
 {/* Hero Section */}
-<div className="bg-blue-600 text-white p-8 rounded-lg shadow mb-12">
-  <h1 className="text-4xl font-bold mb-6">
-    The Future of Finance on  BASE Network
+<div className="bg-gradient-to-br from-blue-700 to-blue-900 text-white p-8 rounded-lg shadow-xl mb-12">
+  <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+    Institutional-Grade USDC Yields on BASE
   </h1>
-  <p className="text-xl mb-8 text-blue-100">
-    Join the Next Evolution in Digital Asset Infrastructure
+  <p className="text-xl md:text-2xl text-blue-100 text-center mb-8">
+    Secure Daily Returns, Powered by Innovation
   </p>
-  <div className="flex flex-wrap gap-4 justify-center text-lg mb-12">
-    <div className="flex items-center">
-      <span className="text-blue-300 mr-2">•</span>
-      Pure DeFi Architecture
+  
+  <div className="grid md:grid-cols-3 gap-6 text-center">
+    <div className="feature-item">
+      <div className="text-xl font-semibold mb-2">Daily USDC Rewards</div>
+      <p className="text-blue-100">
+        {formatAPR(currentAPR)}% APR Yield
+      </p>
     </div>
-    <div className="flex items-center">
-      <span className="text-blue-300 mr-2">•</span>
-      Institutional Framework
+    
+    <div className="feature-item">
+      <div className="text-xl font-semibold mb-2">Bank-Grade Security</div>
+      <p className="text-blue-100">
+        Audited by Blockaid
+      </p>
     </div>
-    <div className="flex items-center">
-      <span className="text-blue-300 mr-2">•</span>
-      Community Governance
+    
+    <div className="feature-item">
+      <div className="text-xl font-semibold mb-2">Community Growth</div>
+      <p className="text-blue-100">
+        {formatAPR(referrerRate)}% Referral Bonus
+      </p>
     </div>
   </div>
 </div>
