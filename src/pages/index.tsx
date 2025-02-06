@@ -49,34 +49,50 @@ const LandingContent: React.FC<{
    <div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
 
 {/* Hero Section */}
-<div className="bg-gradient-to-br from-blue-700 to-blue-900 text-white p-8 rounded-lg shadow-xl mb-12">
-  <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-    Institutional-Grade USDC Yields on BASE
-  </h1>
-  <p className="text-xl md:text-2xl text-blue-100 text-center mb-8">
-    Secure Daily Returns, Powered by Innovation
-  </p>
-  
-  <div className="grid md:grid-cols-3 gap-6 text-center">
-    <div className="feature-item">
-      <div className="text-xl font-semibold mb-2">Daily USDC Rewards</div>
-      <p className="text-blue-100">
-        {formatAPR(currentAPR)}% APR Yield
+<div className="container mx-auto px-4">
+  <div className="card gradient-bg mb-12">
+    <div className="text-center space-y-6">
+      {/* Main Header */}
+      <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+        Institutional-Grade USDC Yields on BASE
+      </h1>
+      
+      <p className="text-xl md:text-2xl text-gray-600">
+        Secure Daily Returns, Powered by Innovation
       </p>
-    </div>
-    
-    <div className="feature-item">
-      <div className="text-xl font-semibold mb-2">Bank-Grade Security</div>
-      <p className="text-blue-100">
-        Audited by Blockaid
-      </p>
-    </div>
-    
-    <div className="feature-item">
-      <div className="text-xl font-semibold mb-2">Community Growth</div>
-      <p className="text-blue-100">
-        {formatAPR(referrerRate)}% Referral Bonus
-      </p>
+
+      {/* Feature Grid */}
+      <div className="grid md:grid-cols-3 gap-6 mt-12">
+        {/* Daily Rewards Card */}
+        <div className="stats-card">
+          <div className="text-xl font-semibold text-gray-800 mb-2">
+            Daily USDC Rewards
+          </div>
+          <div className="text-3xl font-bold text-blue-600">
+            {formatAPR(currentAPR)}% APR
+          </div>
+        </div>
+
+        {/* Security Card */}
+        <div className="stats-card">
+          <div className="text-xl font-semibold text-gray-800 mb-2">
+            Bank-Grade Security
+          </div>
+          <div className="text-lg text-gray-600">
+            Audited by Blockaid
+          </div>
+        </div>
+
+        {/* Community Card */}
+        <div className="stats-card">
+          <div className="text-xl font-semibold text-gray-800 mb-2">
+            Community Growth
+          </div>
+          <div className="text-3xl font-bold text-blue-600">
+            {formatAPR(referrerRate)}% Bonus
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
