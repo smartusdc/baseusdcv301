@@ -344,28 +344,33 @@ const LandingContent: React.FC<{
   </div>
 </div>
 
-{/* Contact Section */}
-<div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
+{/* Contact Section - メインのサポート情報 */}
+<div className="bg-white text-gray-900 p-4 md:p-8 rounded-lg mb-8">
   <h2 className="text-2xl font-bold mb-6">Need Support?</h2>
   <div className="text-center">
     <p className="text-lg mb-4">Our team is here to help you with any questions or concerns.</p>
-    <a 
-      href="mailto:support@mera.finance" 
-      className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-    >
-      Contact Support: support@mera.finance
-    </a>
+    <div className="inline-flex items-center space-x-2 bg-blue-50 px-6 py-3 rounded-lg">
+      <svg 
+        className="w-5 h-5 text-blue-600" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <a 
+        href="mailto:support@mera.finance" 
+        className="text-blue-600 hover:text-blue-800 font-medium"
+      >
+        support@mera.finance
+      </a>
+    </div>
   </div>
 </div>
 
-{/* Footer - using the existing styling */}
-<div className="footer-links text-center mt-8 pb-8">
-  <a 
-    href="mailto:support@mera.finance" 
-    className="text-blue-600 hover:text-blue-800 transition-colors"
-  >
-    Contact us: support@mera.finance
-  </a>
+{/* Footer - シンプルな著作権表示のみに */}
+<div className="text-center text-gray-600 text-sm py-8">
+  <p>© 2024 MERA.FINANCE. All rights reserved.</p>
 </div>
       </div>
       </div>
