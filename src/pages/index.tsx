@@ -129,7 +129,7 @@ const LandingContent: React.FC<{
   </div>
 </div>
 {/* Key Benefits Section */}
-<div className="container mx-auto px-4 my-8 md:my-16">
+<div className="mb-12"> {/* シンプルなマージンのみ */}
   <div className="grid md:grid-cols-2 gap-6">
     {/* Platform Benefits */}
     <div className="card">
@@ -190,7 +190,7 @@ const LandingContent: React.FC<{
 </div>
 
 {/* Early Adopter Benefits Section */}
-<div className="container mx-auto px-4 my-8 md:my-16">
+<div className="mb-12"> {/* シンプルなマージンのみ */}
   <div className="card bg-gradient-to-br from-blue-700 to-blue-900 text-white p-6 md:p-8">
     <div className="text-center mb-6 md:mb-8">
       <h2 className="text-2xl md:text-3xl font-bold mb-3">Early Adopter Benefits</h2>
@@ -228,7 +228,7 @@ const LandingContent: React.FC<{
 </div>
 
 
-<div className="container mx-auto px-4 my-16">
+<div className="mb-12"> {/* シンプルなマージンのみ */}
   <div className="text-center mb-8">
     <h2 className="text-2xl font-bold mb-4">Start Earning in Minutes</h2>
     <p className="text-gray-600">Simple steps to begin your journey</p>
