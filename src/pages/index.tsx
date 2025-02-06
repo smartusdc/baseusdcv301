@@ -283,41 +283,62 @@ const LandingContent: React.FC<{
   {/* Previous sections remain the same */}
 
 {/* Content Creators Section */}
-<div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
-  <h2 className="text-2xl font-bold mb-6">Featured Content Creators</h2>
-  <div className="bg-gray-50 p-6 rounded-lg">
-    <p className="text-lg mb-4">Are you a content creator? Create a video or article about MERA.FINANCE and get featured here!</p>
+<div className="bg-white text-gray-900 p-4 md:p-8 rounded-lg mb-8">
+  <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Featured Content Creators</h2>
+  <div className="bg-gray-50 p-4 md:p-6 rounded-lg">
+    <p className="text-base md:text-lg mb-4 break-words">
+      Are you a content creator? Create a video or article about MERA.FINANCE and get featured here!
+    </p>
     
-    <h3 className="text-xl font-bold mb-3">Benefits of being featured:</h3>
-    <div className="space-y-2 mb-6">
-      <p>• Direct exposure to our growing user base</p>
-      <p>• Permanent backlink to your content</p>
-      <p>• Special referral tracking</p>
-      <p>• Priority support and early access to new features</p>
-      <p>• Opportunity to be highlighted as a trusted community voice</p>
+    <h3 className="text-lg md:text-xl font-bold mb-3">Benefits of being featured:</h3>
+    <div className="space-y-2 mb-4 md:mb-6">
+      <div className="flex items-start">
+        <span className="mr-2">•</span>
+        <p className="flex-1">Direct exposure to our growing user base</p>
+      </div>
+      <div className="flex items-start">
+        <span className="mr-2">•</span>
+        <p className="flex-1">Permanent backlink to your content</p>
+      </div>
+      <div className="flex items-start">
+        <span className="mr-2">•</span>
+        <p className="flex-1">Special referral tracking</p>
+      </div>
+      <div className="flex items-start">
+        <span className="mr-2">•</span>
+        <p className="flex-1">Priority support and early access to new features</p>
+      </div>
+      <div className="flex items-start">
+        <span className="mr-2">•</span>
+        <p className="flex-1">Opportunity to be highlighted as a trusted community voice</p>
+      </div>
     </div>
 
-    <p className="text-gray-700">
+    <p className="text-sm md:text-base text-gray-700">
       Contact us through our form to get your content featured. Quality content that helps users understand our platform will be prioritized for featuring.
     </p>
   </div>
 </div>
 
 {/* Referral Program Information */}
-<div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
-  <h2 className="text-2xl font-bold mb-6">Referral Program</h2>
-  <div className="bg-gray-50 p-6 rounded-lg">
-    <p className="text-lg mb-4">
+<div className="bg-white text-gray-900 p-4 md:p-8 rounded-lg mb-8">
+  <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Referral Program</h2>
+  <div className="bg-gray-50 p-4 md:p-6 rounded-lg">
+    <p className="text-base md:text-lg mb-4 break-words">
       Share MERA.FINANCE with your community and earn additional rewards. Our referral program is designed to reward both referrers and their referrals, creating a win-win situation for everyone involved.
     </p>
-    <div className="grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 className="text-xl font-bold mb-3">For Referrers</h3>
-        <p>Earn additional rewards on your referrals' stakes while helping grow the community.</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <div className="bg-white p-4 rounded-lg">
+        <h3 className="text-lg md:text-xl font-bold mb-2">For Referrers</h3>
+        <p className="text-sm md:text-base">
+          Earn additional rewards on your referrals' stakes while helping grow the community.
+        </p>
       </div>
-      <div>
-        <h3 className="text-xl font-bold mb-3">For Those Referred</h3>
-        <p>Get bonus rewards when joining through a referral code, boosting your earning potential.</p>
+      <div className="bg-white p-4 rounded-lg">
+        <h3 className="text-lg md:text-xl font-bold mb-2">For Those Referred</h3>
+        <p className="text-sm md:text-base">
+          Get bonus rewards when joining through a referral code, boosting your earning potential.
+        </p>
       </div>
     </div>
   </div>
