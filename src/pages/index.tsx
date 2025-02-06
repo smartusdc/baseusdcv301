@@ -225,18 +225,30 @@ const LandingContent: React.FC<{
 </div>
 
 
-<div className="grid md:grid-cols-3 gap-6 mb-12">
-  <div className="bg-white p-6 rounded-lg shadow">
-    <h3 className="text-xl font-bold mb-3">1. Verify</h3>
-    <p>Start with as little as $1 USDC to verify the platform's functionality and security.</p>
+<div className="container mx-auto px-4 my-16">
+  <div className="text-center mb-8">
+    <h2 className="text-2xl font-bold mb-4">Start Earning in Minutes</h2>
+    <p className="text-gray-600">Simple steps to begin your journey</p>
   </div>
-  <div className="bg-white p-6 rounded-lg shadow">
-    <h3 className="text-xl font-bold mb-3">2. Experience</h3>
-    <p>Experience the high APR and instant withdrawals with no lock-up period.</p>
-  </div>
-  <div className="bg-white p-6 rounded-lg shadow">
-    <h3 className="text-xl font-bold mb-3">3. Earn More</h3>
-    <p>Generate your referral code to earn additional rewards and participate in governance.</p>
+  
+  <div className="grid md:grid-cols-3 gap-6">
+    <div className="card bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100">
+      <div className="text-blue-600 text-4xl font-bold mb-4">01</div>
+      <h3 className="text-xl font-bold mb-3">Deposit USDC</h3>
+      <p className="text-gray-600">Start with any amount. No minimum lock-up period, withdraw anytime.</p>
+    </div>
+
+    <div className="card bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100">
+      <div className="text-blue-600 text-4xl font-bold mb-4">02</div>
+      <h3 className="text-xl font-bold mb-3">Earn Daily</h3>
+      <p className="text-gray-600">Watch your USDC grow with competitive APR paid out daily.</p>
+    </div>
+
+    <div className="card bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100">
+      <div className="text-blue-600 text-4xl font-bold mb-4">03</div>
+      <h3 className="text-xl font-bold mb-3">Multiply Rewards</h3>
+      <p className="text-gray-600">Share your referral code to earn additional rewards on others' deposits.</p>
+    </div>
   </div>
 </div>
 
