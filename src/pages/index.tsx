@@ -297,29 +297,62 @@ const LandingContent: React.FC<{
 </div>
 
 
-  {/* Enhanced FAQ Section */}
-  <div className="mb-12">
-    <h2 className="text-2xl font-bold mb-6">Common Questions</h2>
+ {/* Simplified FAQ Section */}
+<div className="mb-12">
+  <div className="text-center mb-8">
+    <h2 className="text-2xl md:text-3xl font-bold mb-3">Common Questions</h2>
+    <p className="text-gray-600">Everything you need to know about MERA.FINANCE</p>
+  </div>
+
+  <div className="grid md:grid-cols-2 gap-6">
+    {/* Security Questions */}
     <div className="space-y-6">
-      <div className="bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-3">How is my security ensured?</h3>
-        <p>Your funds are protected by the same security infrastructure that safeguards billions 
-          in assets on networks. All smart contracts are publicly verifiable and 
-          regularly audited, ensuring maximum transparency and security.</p>
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+        <h3 className="text-xl font-bold mb-3 text-gray-900">
+          How is my security ensured?
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Your funds are protected by enterprise-grade security infrastructure. 
+          Our smart contracts are audited by Blockaid Security and all transactions 
+          are monitored in real-time.
+        </p>
       </div>
-      <div className="bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-3">What about platform governance?</h3>
-        <p>Early participants will receive governance tokens based on their platform engagement, 
-          enabling them to help shape the platform's future development. The earlier and more 
-          consistently you participate, the greater your potential governance allocation.</p>
+
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+        <h3 className="text-xl font-bold mb-3 text-gray-900">
+          What about rewards?
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Rewards are calculated daily based on your deposit amount and current APR. 
+          Additional bonus rewards are available through our referral program.
+        </p>
       </div>
-      <div className="bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-3">Can I withdraw at any time?</h3>
-        <p>Yes, you maintain full control of your funds with no withdrawal restrictions or fees. 
-          Our smart contracts ensure transparent and immediate access to your assets.</p>
+    </div>
+
+    {/* Operation Questions */}
+    <div className="space-y-6">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+        <h3 className="text-xl font-bold mb-3 text-gray-900">
+          How do withdrawals work?
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          You have complete control over your funds with no lock-up periods. 
+          All withdrawals are processed immediately through our smart contracts.
+        </p>
+      </div>
+
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+        <h3 className="text-xl font-bold mb-3 text-gray-900">
+          How can I participate?
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Simply connect your wallet, deposit USDC, and start earning daily rewards. 
+          You can also boost your earnings by participating in our referral program.
+        </p>
       </div>
     </div>
   </div>
+</div>
 
   {/* Previous sections remain the same */}
 
