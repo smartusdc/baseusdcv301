@@ -100,31 +100,75 @@ const LandingContent: React.FC<{
 
 <div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
   <h2 className="text-2xl font-bold mb-6">Security & Transparency</h2>
-  <div className="bg-gray-50 p-6 rounded-lg">
-    <div className="grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 className="text-xl font-bold mb-3">Security Features</h3>
-        <ul className="space-y-2">
-          <li>• Smart contracts verified and audited by Blockaid Security</li>
-          <li>• Built on  BASE Network infrastructure</li>
-          <li>• Real-time transaction monitoring</li>
-          <li>• Fully transparent code on BaseScan</li>
-        </ul>
-      </div>
-      <div>
-        <h3 className="text-xl font-bold mb-3">Verified Contracts</h3>
-        <p className="mb-4">View our smart contracts on BaseScan:</p>
-        <a 
-          href="https://basescan.org/address/0x2bd38bd63d66b360de91e2f8caee48aa0b159a00#code"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-800 break-all"
-        >
-          Contract Address
-        </a>
+  <div className="space-y-6">
+    {/* Security Features */}
+    <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl border border-blue-100">
+      <div className="flex items-start space-x-4">
+        <div className="bg-blue-100 p-3 rounded-lg">
+          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+        <div className="flex-1">
+          <h3 className="text-xl font-bold mb-3">Security Features</h3>
+          <ul className="space-y-2">
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>Smart contracts verified and audited by Blockaid Security</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>Built on BASE Network's secure infrastructure</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>Real-time transaction monitoring</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+
+    {/* Contract Status */}
+    <div className="bg-gradient-to-br from-yellow-50 to-white p-6 rounded-xl border border-yellow-100">
+      <div className="flex items-start space-x-4">
+        <div className="bg-yellow-100 p-3 rounded-lg">
+          <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div className="flex-1">
+          <h3 className="text-xl font-bold mb-3">Contract Status</h3>
+          <p className="text-gray-600 mb-4">
+            This contract is currently in beta testing phase. While fully functional and secure, 
+            we recommend starting with smaller deposits as we gather more operational data.
+          </p>
+          <div className="bg-white p-4 rounded-lg border border-yellow-100">
+            <p className="text-sm font-medium text-gray-600 mb-2">View Contract:</p>
+            <a 
+              href="https://basescan.org/address/0x2bd38bd63d66b360de91e2f8caee48aa0b159a00#code"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 break-all font-mono text-sm"
+            >
+              0x2bd38bd63d66b360de91e2f8caee48aa0b159a00
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Additional Info */}
+    <div className="bg-gray-50 p-4 rounded-lg text-sm text-gray-600">
+      <p>
+        For complete transparency, all contract interactions and balances are publicly 
+        viewable on BaseScan. We encourage users to review the contract and its current state 
+        before participating.
+      </p>
+    </div>
 </div>
+
+
 {/* Key Benefits Section */}
 <div className="mb-12"> {/* シンプルなマージンのみ */}
   <div className="grid md:grid-cols-2 gap-6">
