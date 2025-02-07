@@ -304,10 +304,10 @@ const LandingContent: React.FC<{
     <p className="text-gray-600">Everything you need to know about MERA.FINANCE</p>
   </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {/* Left Column */}
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           How is my security ensured?
         </h3>
@@ -318,7 +318,7 @@ const LandingContent: React.FC<{
         </p>
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           What about rewards?
         </h3>
@@ -331,7 +331,7 @@ const LandingContent: React.FC<{
 
     {/* Right Column */}
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           How do withdrawals work?
         </h3>
@@ -341,7 +341,7 @@ const LandingContent: React.FC<{
         </p>
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           How can I participate?
         </h3>
