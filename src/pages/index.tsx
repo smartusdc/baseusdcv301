@@ -297,17 +297,17 @@ const LandingContent: React.FC<{
 </div>
 
 
- {/* Simplified FAQ Section */}
+{/* Enhanced FAQ Section */}
 <div className="mb-12">
   <div className="text-center mb-8">
     <h2 className="text-2xl md:text-3xl font-bold mb-3">Common Questions</h2>
     <p className="text-gray-600">Everything you need to know about MERA.FINANCE</p>
   </div>
 
-  <div className="grid md:grid-cols-2 gap-6">
-    {/* Security Questions */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    {/* Left Column */}
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           How is my security ensured?
         </h3>
@@ -318,7 +318,7 @@ const LandingContent: React.FC<{
         </p>
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           What about rewards?
         </h3>
@@ -329,9 +329,9 @@ const LandingContent: React.FC<{
       </div>
     </div>
 
-    {/* Operation Questions */}
+    {/* Right Column */}
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           How do withdrawals work?
         </h3>
@@ -341,7 +341,7 @@ const LandingContent: React.FC<{
         </p>
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full">
         <h3 className="text-xl font-bold mb-3 text-gray-900">
           How can I participate?
         </h3>
