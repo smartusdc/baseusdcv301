@@ -356,63 +356,80 @@ const LandingContent: React.FC<{
 
   {/* Previous sections remain the same */}
 
-{/* Content Creators Section */}
-<div className="bg-white text-gray-900 p-4 md:p-8 rounded-lg mb-8">
-  <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Featured Content Creators</h2>
-  <div className="bg-gray-50 p-4 md:p-6 rounded-lg">
-    <p className="text-base md:text-lg mb-4 break-words">
-      Are you a content creator? Create a video or article about MERA.FINANCE and get featured here!
-    </p>
-    
-    <h3 className="text-lg md:text-xl font-bold mb-3">Benefits of being featured:</h3>
-    <div className="space-y-2 mb-4 md:mb-6">
-      <div className="flex items-start">
-        <span className="mr-2">•</span>
-        <p className="flex-1">Direct exposure to our growing user base</p>
-      </div>
-      <div className="flex items-start">
-        <span className="mr-2">•</span>
-        <p className="flex-1">Permanent backlink to your content</p>
-      </div>
-      <div className="flex items-start">
-        <span className="mr-2">•</span>
-        <p className="flex-1">Special referral tracking</p>
-      </div>
-      <div className="flex items-start">
-        <span className="mr-2">•</span>
-        <p className="flex-1">Priority support and early access to new features</p>
-      </div>
-      <div className="flex items-start">
-        <span className="mr-2">•</span>
-        <p className="flex-1">Opportunity to be highlighted as a trusted community voice</p>
-      </div>
+{/* Featured Content Creators & Referral Program Combined Section */}
+<div className="grid md:grid-cols-2 gap-8 mb-12">
+  {/* Featured Content Creators */}
+  <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-sm border border-blue-100">
+    <div className="mb-6">
+      <h2 className="text-2xl font-bold mb-3">Content Creators</h2>
+      <p className="text-gray-600">Create content about MERA.FINANCE and get featured</p>
     </div>
 
-    <p className="text-sm md:text-base text-gray-700">
-      Contact us through our form to get your content featured. Quality content that helps users understand our platform will be prioritized for featuring.
-    </p>
-  </div>
-</div>
-
-{/* Referral Program Information */}
-<div className="bg-white text-gray-900 p-4 md:p-8 rounded-lg mb-8">
-  <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Referral Program</h2>
-  <div className="bg-gray-50 p-4 md:p-6 rounded-lg">
-    <p className="text-base md:text-lg mb-4 break-words">
-      Share MERA.FINANCE with your community and earn additional rewards. Our referral program is designed to reward both referrers and their referrals, creating a win-win situation for everyone involved.
-    </p>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-      <div className="bg-white p-4 rounded-lg">
-        <h3 className="text-lg md:text-xl font-bold mb-2">For Referrers</h3>
-        <p className="text-sm md:text-base">
-          Earn additional rewards on your referrals' stakes while helping grow the community.
-        </p>
+    <div className="space-y-4">
+      <div className="bg-white p-4 rounded-lg shadow-sm">
+        <h3 className="font-semibold text-lg mb-2">Featured Benefits</h3>
+        <ul className="space-y-2">
+          <li className="flex items-center text-gray-600">
+            <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Permanent backlink to your content
+          </li>
+          <li className="flex items-center text-gray-600">
+            <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Featured on our homepage
+          </li>
+          <li className="flex items-center text-gray-600">
+            <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Community recognition
+          </li>
+        </ul>
       </div>
-      <div className="bg-white p-4 rounded-lg">
-        <h3 className="text-lg md:text-xl font-bold mb-2">For Those Referred</h3>
-        <p className="text-sm md:text-base">
-          Get bonus rewards when joining through a referral code, boosting your earning potential.
-        </p>
+    </div>
+  </div>
+
+  {/* Referral Program */}
+  <div className="bg-gradient-to-br from-purple-50 to-white p-6 rounded-xl shadow-sm border border-purple-100">
+    <div className="mb-6">
+      <h2 className="text-2xl font-bold mb-3">Referral Program</h2>
+      <p className="text-gray-600">Earn together with your community</p>
+    </div>
+
+    <div className="space-y-4">
+      <div className="bg-white p-4 rounded-lg shadow-sm">
+        <h3 className="font-semibold text-lg mb-2">Program Benefits</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="text-center p-3 bg-purple-50 rounded-lg">
+            <p className="text-sm text-gray-600">You Earn</p>
+            <p className="text-xl font-bold text-purple-600">+{formatAPR(referrerRate)}%</p>
+          </div>
+          <div className="text-center p-3 bg-purple-50 rounded-lg">
+            <p className="text-sm text-gray-600">Friends Earn</p>
+            <p className="text-xl font-bold text-purple-600">+{formatAPR(referredRate)}%</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white p-4 rounded-lg shadow-sm">
+        <h3 className="font-semibold text-lg mb-2">How it Works</h3>
+        <ul className="space-y-2">
+          <li className="flex items-center text-gray-600">
+            <span className="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-2">1</span>
+            Get your unique referral code
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-2">2</span>
+            Share with friends
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-2">3</span>
+            Both get bonus rewards
+          </li>
+        </ul>
       </div>
     </div>
   </div>
