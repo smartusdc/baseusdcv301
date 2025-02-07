@@ -97,8 +97,6 @@ const LandingContent: React.FC<{
   </div>
 </div>
 
-<div className="bg-white text-gray-900 p-8 rounded-lg mt-12">
-
 
 <div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
   <h2 className="text-2xl font-bold mb-6">Security & Transparency</h2>
@@ -126,7 +124,6 @@ const LandingContent: React.FC<{
         </a>
       </div>
     </div>
-  </div>
 </div>
 {/* Key Benefits Section */}
 <div className="mb-12"> {/* シンプルなマージンのみ */}
