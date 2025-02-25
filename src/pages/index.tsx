@@ -97,6 +97,147 @@ const LandingContent: React.FC<{
   </div>
 </div>
 
+{/* Easy Start Guide Section */}
+<div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-12">
+  <h2 className="text-3xl font-bold text-center mb-8">
+    Start Earning in 3 Simple Steps
+  </h2>
+
+  <div className="space-y-8">
+    {/* Step 1: Exchange Account */}
+    <div className="flex flex-col md:flex-row items-start gap-6 p-6 bg-blue-50 rounded-xl">
+      <div className="flex-shrink-0">
+        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+          1
+        </div>
+      </div>
+      <div className="flex-1">
+        <h3 className="text-xl font-bold mb-3">Get USDC from an Exchange</h3>
+        <div className="space-y-3">
+          <p className="text-gray-600">
+            Create an account on any major crypto exchange like Coinbase or Binance
+          </p>
+          <ul className="space-y-2">
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Register with your email and ID
+            </li>
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Add funds using bank transfer or credit card
+            </li>
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Buy USDC with your added funds
+            </li>
+          </ul>
+          <div className="mt-4">
+            <p className="text-sm text-gray-500">
+              Recommended Exchanges:
+              <span className="font-medium"> Coinbase, Binance, Kraken</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 2: MetaMask Setup */}
+    <div className="flex flex-col md:flex-row items-start gap-6 p-6 bg-purple-50 rounded-xl">
+      <div className="flex-shrink-0">
+        <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+          2
+        </div>
+      </div>
+      <div className="flex-1">
+        <h3 className="text-xl font-bold mb-3">Setup MetaMask Wallet</h3>
+        <div className="space-y-3">
+          <p className="text-gray-600">
+            Install MetaMask and transfer your USDC
+          </p>
+          <ul className="space-y-2">
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Install MetaMask from the official website
+            </li>
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Add BASE Network to MetaMask
+            </li>
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Transfer USDC from exchange to your MetaMask wallet
+            </li>
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Get a small amount of ETH on BASE for transaction fees
+            </li>
+          </ul>
+          <div className="mt-4">
+            <a 
+              href="https://metamask.io/download/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-600 hover:text-purple-700 font-medium"
+            >
+              Download MetaMask →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 3: Deposit */}
+    <div className="flex flex-col md:flex-row items-start gap-6 p-6 bg-green-50 rounded-xl">
+      <div className="flex-shrink-0">
+        <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+          3
+        </div>
+      </div>
+      <div className="flex-1">
+        <h3 className="text-xl font-bold mb-3">Start Earning</h3>
+        <div className="space-y-3">
+          <p className="text-gray-600">
+            Connect your wallet and make your first deposit
+          </p>
+          <ul className="space-y-2">
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Click "Connect Wallet" button above
+            </li>
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Enter the amount you want to deposit
+            </li>
+            <li className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              Click "Deposit" and confirm in MetaMask
+            </li>
+          </ul>
+          <div className="mt-4">
+            <p className="text-sm text-gray-500">
+              Minimum deposit:
+              <span className="font-medium"> {MIN_DEPOSIT} USDC</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Help Box */}
+  <div className="mt-8 p-4 bg-gray-50 rounded-lg text-center">
+    <p className="text-gray-600">
+      Need help getting started? 
+      <a 
+        href="mailto:support@mera.finance" 
+        className="text-blue-600 hover:text-blue-700 ml-1"
+      >
+        Contact our support team
+      </a>
+    </p>
+  </div>
+</div>
+
 
 <div className="bg-white text-gray-900 p-8 rounded-lg mb-12">
   <h2 className="text-2xl font-bold mb-6">Security & Transparency</h2>
