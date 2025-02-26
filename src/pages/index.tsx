@@ -100,31 +100,78 @@ const LandingContent: React.FC<{
 {/* Hero Sectionの直後に追加 */}
 <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-12">
   <h2 className="text-3xl font-bold text-center mb-8">
-    Start Earning in One Click
+    Simple Steps to Start Earning
   </h2>
 
-  {/* スクリーンショット */}
-  <div className="mb-8">
-    <img 
-      src="/dashboard-preview.png" 
-      alt="MERA.FINANCE Dashboard"
-      className="rounded-xl shadow-lg w-full"
-    />
-  </div>
+  <div className="flex flex-col md:flex-row gap-8 items-center">
+    {/* 左側：ダッシュボードプレビュー */}
+    <div className="md:w-1/2">
+      <img 
+        src="/dashboard-preview.png" 
+        alt="MERA.FINANCE Dashboard"
+        className="rounded-xl shadow-lg w-full"
+      />
+    </div>
 
-  {/* 説明テキスト */}
-  <div className="grid grid-cols-3 gap-6 text-center mb-8">
-    <div>
-      <h3 className="text-lg font-bold text-blue-600">1. Connect</h3>
-      <p className="text-gray-600">Click Connect Wallet button</p>
-    </div>
-    <div>
-      <h3 className="text-lg font-bold text-green-600">2. Deposit</h3>
-      <p className="text-gray-600">Enter amount and deposit</p>
-    </div>
-    <div>
-      <h3 className="text-lg font-bold text-purple-600">3. Earn</h3>
-      <p className="text-gray-600">Watch your rewards grow daily</p>
+    {/* 右側：説明部分 */}
+    <div className="md:w-1/2 space-y-6">
+      <div className="space-y-4">
+        <div className="flex items-start gap-4">
+          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
+          <div>
+            <h3 className="text-xl font-bold text-blue-600">Connect Wallet</h3>
+            <p className="text-gray-600">Click the "Connect Wallet" button in the top right corner</p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-4">
+          <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">2</div>
+          <div>
+            <h3 className="text-xl font-bold text-green-600">Deposit USDC</h3>
+            <p className="text-gray-600">Enter your desired amount (min. 0.01 USDC) and click deposit</p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-4">
+          <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">3</div>
+          <div>
+            <h3 className="text-xl font-bold text-purple-600">Start Earning</h3>
+            <p className="text-gray-600">Watch your rewards grow daily and claim anytime</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 追加の特徴説明 */}
+      <div className="bg-gray-50 rounded-lg p-6 mt-6">
+        <h4 className="font-bold mb-3">Key Features:</h4>
+        <ul className="space-y-2">
+          <li className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Daily rewards distribution</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>No lock-up period</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Instant withdrawals</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* CTA ボタン */}
+      <div className="text-center md:text-left">
+        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+          Connect Wallet to Start
+        </button>
+      </div>
     </div>
   </div>
 </div>
