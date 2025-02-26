@@ -100,7 +100,7 @@ const LandingContent: React.FC<{
 {/* Hero Sectionの直後に追加 */}
 <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-12">
   <h2 className="text-3xl font-bold text-center mb-8">
-    Simple Steps to Start Earning
+  Main Screen Explanation
   </h2>
 
   <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -120,7 +120,7 @@ const LandingContent: React.FC<{
           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
           <div>
             <h3 className="text-xl font-bold text-blue-600">Connect Wallet</h3>
-            <p className="text-gray-600">Click the "Connect Wallet" button in the top right corner</p>
+            <p className="text-gray-600">Click the "Connect Wallet" button in the top right corner.You will then be taken to the main screen.</p>
           </div>
         </div>
 
@@ -166,12 +166,7 @@ const LandingContent: React.FC<{
         </ul>
       </div>
 
-      {/* CTA ボタン */}
-      <div className="text-center md:text-left">
-        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-          Connect Wallet to Start
-        </button>
-      </div>
+     
     </div>
   </div>
 </div>
