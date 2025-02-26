@@ -97,6 +97,38 @@ const LandingContent: React.FC<{
   </div>
 </div>
 
+{/* Hero Sectionの直後に追加 */}
+<div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-12">
+  <h2 className="text-3xl font-bold text-center mb-8">
+    Start Earning in One Click
+  </h2>
+
+  {/* スクリーンショット */}
+  <div className="mb-8">
+    <img 
+      src="/dashboard-preview.png" 
+      alt="MERA.FINANCE Dashboard"
+      className="rounded-xl shadow-lg w-full"
+    />
+  </div>
+
+  {/* 説明テキスト */}
+  <div className="grid grid-cols-3 gap-6 text-center mb-8">
+    <div>
+      <h3 className="text-lg font-bold text-blue-600">1. Connect</h3>
+      <p className="text-gray-600">Click Connect Wallet button</p>
+    </div>
+    <div>
+      <h3 className="text-lg font-bold text-green-600">2. Deposit</h3>
+      <p className="text-gray-600">Enter amount and deposit</p>
+    </div>
+    <div>
+      <h3 className="text-lg font-bold text-purple-600">3. Earn</h3>
+      <p className="text-gray-600">Watch your rewards grow daily</p>
+    </div>
+  </div>
+</div>
+
 {/* Easy Start Guide Section */}
 <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-12">
   <h2 className="text-3xl font-bold text-center mb-8">
